@@ -1,12 +1,14 @@
 package seedu.address.model;
 
 import java.nio.file.Path;
+import java.time.LocalDate;
 import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.schedule.Schedule;
 
 /**
  * The API of the Model component.
@@ -52,6 +54,19 @@ public interface Model {
 
     /** Returns the AddressBook */
     ReadOnlyAddressBook getAddressBook();
+
+    /**
+     * Replaces schedule data with the data in {@code schedule}.
+     */
+    void setSchedule(Schedule schedule);
+
+    /** Returns the Schedule */
+    Schedule getSchedule();
+
+    /**
+     * Returns true if a person with the same identity as {@code person} exists in the address book.
+     */
+    void addPersonToSchedule(Person person, LocalDate date);
 
     /**
      * Returns true if a person with the same identity as {@code person} exists in the address book.
