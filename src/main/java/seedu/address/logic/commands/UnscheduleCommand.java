@@ -43,7 +43,7 @@ public class UnscheduleCommand extends Command {
         requireNonNull(model);
         Person person = model.getPersonByPhoneNumber(phoneNumber);
         model.removePersonFromSchedule(person, date);
-        return new CommandResult(String.format(MESSAGE_SUCCESS, Messages.format(person)));
+        return new CommandResult(String.format(MESSAGE_SUCCESS, Messages.format(person), date));
     }
 
     @Override
