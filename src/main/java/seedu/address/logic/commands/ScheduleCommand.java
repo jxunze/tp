@@ -1,17 +1,16 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_DATE;
+import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
+
+import java.time.LocalDate;
 
 import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.person.Person;
-
-import java.time.LocalDate;
-
+import seedu.address.model.person.Phone;
 
 /**
  * Adds a person to the address book.
@@ -22,28 +21,27 @@ public class ScheduleCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a person to the schedule. "
             + "Parameters: "
-            + PREFIX_PHONE + "PHONE "
-            + PREFIX_DATE + "DATE ";
+            + "PHONE "
+            + "DATE ";
     //  + PREFIX_TAG + "owesMoney";
 
     public static final String MESSAGE_SUCCESS = "New person added to schedule: %1$s";
-//    public static final String MESSAGE_DUPLICATE_PERSON = "This person is already working on the specified date. ";
-    private final Person person;
+    private final Phone phoneNumber;
     private final LocalDate date;
 
     /**
-     * Creates an AddCommand to add the specified {@code Person}
+     * Creates a ScheduleCommand to add the specified {@code Person} to the schedule on the specified {@code LocalDate}.
      */
-    public ScheduleCommand(Person person, LocalDate date) {
-        requireNonNull(person);
-        this.person = person;
+    public ScheduleCommand(Phone phoneNumber, LocalDate date) {
+        requireAllNonNull(phoneNumber, date);
+        this.phoneNumber = phoneNumber;
         this.date = date;
     }
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
-
+        Person person = model.getPersonByPhoneNumber(phoneNumber);
         model.addPersonToSchedule(person, date);
         return new CommandResult(String.format(MESSAGE_SUCCESS, Messages.format(person)));
     }
@@ -60,13 +58,13 @@ public class ScheduleCommand extends Command {
         }
 
         ScheduleCommand otherScheduleCommand = (ScheduleCommand) other;
-        return person.equals(otherScheduleCommand.person) && date.equals(otherScheduleCommand.date);
+        return phoneNumber.equals(otherScheduleCommand.phoneNumber) && date.equals(otherScheduleCommand.date);
     }
 
     @Override
     public String toString() {
         return new ToStringBuilder(this)
-                .add("person", person)
+                .add("phoneNumber", phoneNumber)
                 .add("date", date)
                 .toString();
     }
