@@ -6,7 +6,6 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 import java.time.LocalDate;
 
 import seedu.address.commons.util.ToStringBuilder;
-import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.person.Person;
@@ -43,7 +42,7 @@ public class UnscheduleCommand extends Command {
         requireNonNull(model);
         Person person = model.getPersonByPhoneNumber(phoneNumber);
         model.removePersonFromSchedule(person, date);
-        return new CommandResult(String.format(MESSAGE_SUCCESS, Messages.format(person), date));
+        return new CommandResult(String.format(MESSAGE_SUCCESS, person.getName().value, date));
     }
 
     @Override
