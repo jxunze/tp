@@ -22,7 +22,7 @@ public class UnscheduleCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Removes a person from the schedule. "
             + "Parameters: "
             + "PHONE "
-            + "DATE ";
+            + "DATE in the format yyyy-mm-dd";
 
     public static final String MESSAGE_SUCCESS = "Person removed from schedule: %1$s";
     private final Phone phoneNumber;

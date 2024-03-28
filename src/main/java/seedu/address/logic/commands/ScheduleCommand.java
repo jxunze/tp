@@ -22,10 +22,9 @@ public class ScheduleCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a person to the schedule. "
             + "Parameters: "
             + "PHONE "
-            + "DATE ";
-    //  + PREFIX_TAG + "owesMoney";
+            + "DATE in the format yyyy-mm-dd";
 
-    public static final String MESSAGE_SUCCESS = "New person added to schedule: %1$s";
+    public static final String MESSAGE_SUCCESS = "%1$s scheduled on %2$s";
     private final Phone phoneNumber;
     private final LocalDate date;
 
@@ -43,7 +42,7 @@ public class ScheduleCommand extends Command {
         requireNonNull(model);
         Person person = model.getPersonByPhoneNumber(phoneNumber);
         model.addPersonToSchedule(person, date);
-        return new CommandResult(String.format(MESSAGE_SUCCESS, Messages.format(person)));
+        return new CommandResult(String.format(MESSAGE_SUCCESS, person.getName().value, date));
     }
 
     @Override

@@ -10,7 +10,7 @@ import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Phone;
 
 /**
- * Parses input arguments and creates a new ScheduleCommand object
+ * Parses input arguments and creates a new UnscheduleCommand object
  */
 public class UnscheduleCommandParser implements Parser<UnscheduleCommand> {
 
@@ -23,7 +23,7 @@ public class UnscheduleCommandParser implements Parser<UnscheduleCommand> {
     public UnscheduleCommand parse(String args) throws ParseException {
         String[] tokens = args.trim().split("\\s+");
         if (tokens.length != 2) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, HoursCommand.MESSAGE_USAGE));
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, UnscheduleCommand.MESSAGE_USAGE));
         }
         Phone phoneNumber = ParserUtil.parsePhone(tokens[0]);
         LocalDate date = ParserUtil.parseDate(tokens[1]);
