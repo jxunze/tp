@@ -136,6 +136,12 @@ public class ModelManager implements Model {
         schedule.addPerson(person, date);
     }
 
+    @Override
+    public void removePersonFromSchedule(Person person, LocalDate date) {
+        requireAllNonNull(person, date);
+        schedule.deletePerson(person, date);
+    }
+
     //=========== Filtered Person List Accessors =============================================================
 
     /**

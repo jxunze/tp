@@ -1,5 +1,6 @@
 package seedu.address.model.util;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -14,6 +15,8 @@ import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.Sex;
 import seedu.address.model.person.WorkHours;
+import seedu.address.model.schedule.MonthSchedule;
+import seedu.address.model.schedule.Schedule;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -49,6 +52,19 @@ public class SampleDataUtil {
             sampleAb.addPerson(samplePerson);
         }
         return sampleAb;
+    }
+
+    public static Schedule getSampleSchedule() {
+        Schedule sampleSchedule = new MonthSchedule();
+        LocalDate date = LocalDate.parse("2024-01-01");
+        int count = 0;
+        for (Person samplePerson : getSamplePersons()) {
+            if (count % 3 == 0) {
+                date = date.plusDays(1);
+            }
+            sampleSchedule.addPerson(samplePerson, date);
+        }
+        return sampleSchedule;
     }
 
     /**

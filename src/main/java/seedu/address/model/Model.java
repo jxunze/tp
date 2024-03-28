@@ -71,6 +71,11 @@ public interface Model {
     /**
      * Returns true if a person with the same identity as {@code person} exists in the address book.
      */
+    void removePersonFromSchedule(Person person, LocalDate date);
+
+    /**
+     * Returns true if a person with the same identity as {@code person} exists in the address book.
+     */
     boolean hasPerson(Person person);
 
     /**
