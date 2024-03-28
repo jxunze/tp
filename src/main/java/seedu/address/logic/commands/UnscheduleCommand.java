@@ -24,7 +24,7 @@ public class UnscheduleCommand extends Command {
             + "PHONE "
             + "DATE in the format yyyy-mm-dd";
 
-    public static final String MESSAGE_SUCCESS = "Person removed from schedule: %1$s";
+    public static final String MESSAGE_SUCCESS = "Schedule: %1$s removed from %2$s";
     private final Phone phoneNumber;
     private final LocalDate date;
 

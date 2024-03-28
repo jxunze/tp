@@ -24,7 +24,7 @@ public class ScheduleCommand extends Command {
             + "PHONE "
             + "DATE in the format yyyy-mm-dd";
 
-    public static final String MESSAGE_SUCCESS = "%1$s scheduled on %2$s";
+    public static final String MESSAGE_SUCCESS = "Schedule: %1$s added on %2$s";
     private final Phone phoneNumber;
     private final LocalDate date;
 
