@@ -39,6 +39,7 @@ public class TypicalPersons {
         .withAddress("123, Jurong West Ave 6, #08-111")
         .withPhone("94351253")
         .withTags("friends")
+        // .withBankDetails("dbs 1234567890")
         .build();
     public static final Person BENSON = new PersonBuilder()
         .withFirstName("Benson")
@@ -48,6 +49,7 @@ public class TypicalPersons {
         .withAddress("311, Clementi Ave 2, #02-25")
         .withPhone("98765432")
         .withTags("owesMoney", "friends")
+        .withBankDetails("ocbc 1234567")
         .build();
     public static final Person CARL = new PersonBuilder()
         .withFirstName("Carl")

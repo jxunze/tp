@@ -56,6 +56,6 @@ public class BankDetailsTest {
         assertFalse(bankDetails.equals(5.0f));
 
         // different values -> returns false
-        assertFalse(bankDetails.equals(new BankDetails("3987398782")));
+        assertFalse(bankDetails.equals(new BankDetails("uob 3987398782")));
     }
 }
