@@ -27,18 +27,24 @@ public class BankDetailsTest {
         // invalid BankDetails numbers
         assertFalse(BankDetails.isValidBankAccount("mt"));
         assertFalse(BankDetails.isValidBankAccount("1231-421321"));
+        assertFalse(BankDetails.isValidBankAccount("1234567890"));
 
         // valid BankDetails numbers
-        assertTrue(BankDetails.isValidBankAccount("1231421421"));
-        assertTrue(BankDetails.isValidBankAccount("3987398782"));
+        assertTrue(BankDetails.isValidBankAccount("posb 123456789"));
+        assertTrue(BankDetails.isValidBankAccount("ocbc 1234567"));
+        assertTrue(BankDetails.isValidBankAccount("dbs 1234567890"));
+        assertTrue(BankDetails.isValidBankAccount("uob 1234567890"));
+        assertTrue(BankDetails.isValidBankAccount("standard chartered 1234567890"));
+        assertTrue(BankDetails.isValidBankAccount("hsbc 12345678901234"));
+        assertTrue(BankDetails.isValidBankAccount("other maybank 1234567890123"));
     }
 
     @Test
     public void equals() {
-        BankDetails bankDetails = new BankDetails("1231421421");
+        BankDetails bankDetails = new BankDetails("posb 123123123");
 
         // same values -> returns true
-        assertTrue(bankDetails.equals(new BankDetails("1231421421")));
+        assertTrue(bankDetails.equals(new BankDetails("posb 123123123")));
 
         // same object -> returns true
         assertTrue(bankDetails.equals(bankDetails));

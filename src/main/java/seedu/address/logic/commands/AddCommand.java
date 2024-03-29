@@ -40,7 +40,7 @@ public class AddCommand extends Command {
         + PREFIX_SEX + "m "
         + PREFIX_PAYRATE + "14 "
         + PREFIX_ADDRESS + "311, Clementi Ave 2, #02-25 "
-        + PREFIX_BANKDETAILS + "0495858505";
+        + PREFIX_BANKDETAILS + "posb 123456789";
     //  + PREFIX_TAG + "owesMoney";
 
     public static final String MESSAGE_SUCCESS = "New person added: %1$s";
