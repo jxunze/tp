@@ -25,7 +25,7 @@ public class PersonBuilder {
     public static final String DEFAULT_SEX = "f";
     public static final double DEFAULT_PAY_RATE = 15;
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
-    public static final String DEFAULT_BANK_ADDRESS = "12345678";
+    public static final String DEFAULT_BANK_ADDRESS = "ocbc 8374219";
     public static final int DEFAULT_WORK_HOURS = 0;
 
     private Name firstName;

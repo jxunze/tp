@@ -42,7 +42,7 @@ public class CommandTestUtil {
     public static final String VALID_ADDRESS_AMY = "Block 312, Amy Street 1";
     public static final String VALID_ADDRESS_BOB = "Block 123, Bobby Street 3";
     public static final String VALID_BANKDETAILS_AMY = "ocbc 8374219";
-    public static final String VALID_BANKDETAILS_BOB = "other maybank 3214213212";
+    public static final String VALID_BANKDETAILS_BOB = "dbs 7777222201";
     public static final String VALID_TAG_WAITER = "waiter";
     public static final String VALID_TAG_COOK = "cook";
     public static final int VALID_WORK_HOURS_AMY = 10;

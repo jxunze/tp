@@ -39,7 +39,7 @@ public class TypicalPersons {
         .withAddress("123, Jurong West Ave 6, #08-111")
         .withPhone("94351253")
         .withTags("friends")
-        // .withBankDetails("dbs 1234567890")
+        .withBankDetails("dbs 1234567890")
         .build();
     public static final Person BENSON = new PersonBuilder()
         .withFirstName("Benson")
@@ -58,6 +58,7 @@ public class TypicalPersons {
         .withSex("m")
         .withPayRate(14.5)
         .withAddress("wall street")
+        .withBankDetails("hsbc 0987654321")
         .build();
     public static final Person DANIEL = new PersonBuilder()
         .withFirstName("Daniel")
@@ -67,6 +68,7 @@ public class TypicalPersons {
         .withPayRate(14.5)
         .withAddress("10th street")
         .withTags("friends")
+        .withBankDetails("uob 8888777700")
         .build();
     public static final Person ELLE = new PersonBuilder()
         .withFirstName("Elle")
@@ -75,6 +77,7 @@ public class TypicalPersons {
         .withSex("f")
         .withPayRate(14.5)
         .withAddress("michegan ave")
+        .withBankDetails("posb 369369369")
         .build();
     public static final Person FIONA = new PersonBuilder()
         .withFirstName("Fiona")
@@ -83,6 +86,7 @@ public class TypicalPersons {
         .withSex("f")
         .withPayRate(14.5)
         .withAddress("little tokyo")
+        .withBankDetails("ocbc 7654321")
         .build();
     public static final Person GEORGE = new PersonBuilder()
         .withFirstName("George")
@@ -91,6 +95,7 @@ public class TypicalPersons {
         .withSex("m")
         .withPayRate(14.5)
         .withAddress("4th street")
+        .withBankDetails("other maybank 5554443332")
         .build();
 
     // Manually added
@@ -120,7 +125,8 @@ public class TypicalPersons {
         .withPayRate(VALID_PAYRATE_AMY)
         .withAddress(VALID_ADDRESS_AMY)
         .withBankDetails(VALID_BANKDETAILS_AMY).withWorkedHours(VALID_WORK_HOURS_AMY)
-        .withTags(VALID_TAG_COOK).build();
+        .withTags(VALID_TAG_COOK)
+        .build();
     public static final Person BOB = new PersonBuilder()
         .withFirstName(VALID_FIRSTNAME_BOB)
         .withLastName(VALID_LASTNAME_BOB)
