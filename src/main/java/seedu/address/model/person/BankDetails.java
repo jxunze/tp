@@ -20,8 +20,10 @@ public class BankDetails {
     public static final String HSBC_REGEX = "hsbc\\s+\\d+";
     public static final String OTHERS_REGEX = "other\\s+\\w+\\s+\\d+";
 
+    public static final String BLANK_REGEX = "\\s*";
+
     public static final String VALIDATION_REGEX = DBS_UOB_STANDARD_REGEX + "|"
-        + POSB_REGEX + "|" + OCBC_REGEX + "|" + HSBC_REGEX + "|" + OTHERS_REGEX;
+        + POSB_REGEX + "|" + OCBC_REGEX + "|" + HSBC_REGEX + "|" + OTHERS_REGEX + "|" + BLANK_REGEX;
 
     public final String value;
 

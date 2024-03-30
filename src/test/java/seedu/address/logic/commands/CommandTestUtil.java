@@ -72,7 +72,7 @@ public class CommandTestUtil {
     public static final String INVALID_PAYRATE_DESC = " " + PREFIX_PAYRATE + "ut"; //'ut' is not an allowed payrate
     public static final String INVALID_PHONE_DESC = " " + PREFIX_PHONE + "911a"; // 'a' not allowed in phones
     public static final String INVALID_BANKDETAILS_DESC = " " + PREFIX_BANKDETAILS
-        + "3213-421321"; // '-' not allowed in bank details
+        + "3213*421321"; // '*' not allowed in bank details
     public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // '*' not allowed in tags
     public static final String INVALID_ADDRESS_DESC = " " + PREFIX_ADDRESS; // empty string not allowed for addresses
 
