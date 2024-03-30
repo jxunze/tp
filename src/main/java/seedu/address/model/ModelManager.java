@@ -6,13 +6,17 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 import java.nio.file.Path;
 import java.time.LocalDate;
 import java.util.Set;
+import java.util.Map;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.ObservableMap;
 import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
+import seedu.address.model.person.PayrollWrapper;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.schedule.Schedule;
@@ -156,6 +160,20 @@ public class ModelManager implements Model {
     public void removePersonFromSchedule(Person person, LocalDate date) {
         requireAllNonNull(person, date);
         schedule.deletePerson(person, date);
+    }
+
+    //=========== Payroll  ===================================================================================
+
+    @Override
+    public ObservableList<PayrollWrapper> generatePayroll(LocalDate startDate, LocalDate endDate) {
+        requireAllNonNull(startDate, endDate);
+        Map<Person, Float> hoursWorked = schedule.getHoursWorked(startDate, endDate);
+        ObservableList<PayrollWrapper> payrolls = FXCollections.observableArrayList(); // Use ObservableList directly
+
+        for (Map.Entry<Person, Float> entry : hoursWorked.entrySet()) {
+            payrolls.add(new PayrollWrapper(entry.getKey(), entry.getValue()));
+        }
+        return payrolls;
     }
 
     //=========== Filtered Person List Accessors =============================================================
