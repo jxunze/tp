@@ -29,6 +29,7 @@ class JsonAdaptedPerson {
     private final String bankDetails;
     private final List<JsonAdaptedTag> tags = new ArrayList<>();
     private final int workHours;
+    private final boolean archiveStatus;
 
     /**
      * Constructs a {@code JsonAdaptedPerson} with the given person details.
@@ -42,7 +43,8 @@ class JsonAdaptedPerson {
                              @JsonProperty("address") String address,
                              @JsonProperty("bankDetails") String bankDetails,
                              @JsonProperty("workHours") int workHours,
-                             @JsonProperty("tags") List<JsonAdaptedTag> tags) {
+                             @JsonProperty("tags") List<JsonAdaptedTag> tags,
+                             @JsonProperty("archiveStatus") boolean archiveStatus) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
@@ -54,6 +56,7 @@ class JsonAdaptedPerson {
         if (tags != null) {
             this.tags.addAll(tags);
         }
+        this.archiveStatus = archiveStatus;
     }
 
     /**
@@ -68,6 +71,7 @@ class JsonAdaptedPerson {
         address = source.getAddress().value;
         bankDetails = source.getBankDetails().value;
         workHours = source.getWorkHours().getHoursWorked();
+        archiveStatus = source.getArchiveStatus().isArchived;
         tags.addAll(source.getTags().stream()
             .map(JsonAdaptedTag::new)
             .collect(Collectors.toList()));

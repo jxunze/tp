@@ -9,17 +9,14 @@ public class ArchiveStatus {
 
     public static final String MESSAGE_CONSTRAINTS = "Archive status can only be '0' for not archived or "
         + "'1' for archived.";
+    public boolean isArchived;
     private int archiveStatus;
 
     /**
      * Constructor for ArchiveStatus that initializes the archive status to not archived.
      */
     public ArchiveStatus(boolean isArchived) {
-        if (isArchived) {
-            this.archiveStatus = 1;
-        } else {
-            this.archiveStatus = 0;
-        }
+        this.isArchived = isArchived;
     }
 
     /**
