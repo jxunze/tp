@@ -31,6 +31,10 @@ public class JsonAddressBookStorage implements AddressBookStorage {
         return filePath;
     }
 
+    public Path getArchiveBookFilePath() {
+        return filePath;
+    }
+
     @Override
     public Optional<ReadOnlyAddressBook> readAddressBook() throws DataLoadingException {
         return readAddressBook(filePath);
@@ -75,6 +79,20 @@ public class JsonAddressBookStorage implements AddressBookStorage {
 
         FileUtil.createIfMissing(filePath);
         JsonUtil.saveJsonFile(new JsonSerializableAddressBook(addressBook), filePath);
+    }
+
+    @Override
+    public void saveArchiveBook(ReadOnlyAddressBook archiveBook) throws IOException {
+        saveArchiveBook(archiveBook, filePath);
+    }
+
+    @Override
+    public void saveArchiveBook(ReadOnlyAddressBook archiveBook, Path filePath) throws IOException {
+        requireNonNull(archiveBook);
+        requireNonNull(filePath);
+
+        FileUtil.createIfMissing(filePath);
+        JsonUtil.saveJsonFile(new JsonSerializableAddressBook(archiveBook), filePath);
     }
 
 }
