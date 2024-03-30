@@ -79,6 +79,25 @@ public class UniquePersonList implements Iterable<Person> {
         }
     }
 
+    /**
+     * Archives the equivalent person from the list.
+     * The person must exist in the list.
+     */
+    public void archive(Person target, Person archivedPerson) {
+        requireAllNonNull(target);
+
+        int index = internalList.indexOf(target);
+        if (index == -1) {
+            throw new PersonNotFoundException();
+        }
+
+        if (!target.isSamePerson(archivedPerson) && contains(archivedPerson)) {
+            throw new DuplicatePersonException();
+        }
+
+        internalList.set(index, archivedPerson);
+    }
+
     public void setPersons(UniquePersonList replacement) {
         requireNonNull(replacement);
         internalList.setAll(replacement.internalList);

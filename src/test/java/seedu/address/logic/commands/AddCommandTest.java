@@ -93,6 +93,12 @@ public class AddCommandTest {
         public void updatePerson(Person personToUpdate) {
             throw new AssertionError("This method should not be called.");
         }
+
+        @Override
+        public void archivePerson(Person personToArchive, Person archivedPerson) {
+            throw new AssertionError("This method should not be called.");
+        }
+
         @Override
         public Person getPersonByPhoneNumber(Phone phoneNumber) {
             throw new AssertionError("This method should not be called.");

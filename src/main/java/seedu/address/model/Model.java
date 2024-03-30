@@ -102,4 +102,6 @@ public interface Model {
      * @param personToUpdate The person to be updated.
      */
     void updatePerson(Person personToUpdate);
+
+    void archivePerson(Person personToArchive, Person archivedPerson);
 }

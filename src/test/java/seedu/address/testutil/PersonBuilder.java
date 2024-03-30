@@ -3,14 +3,7 @@ package seedu.address.testutil;
 import java.util.HashSet;
 import java.util.Set;
 
-import seedu.address.model.person.Address;
-import seedu.address.model.person.BankDetails;
-import seedu.address.model.person.Name;
-import seedu.address.model.person.PayRate;
-import seedu.address.model.person.Person;
-import seedu.address.model.person.Phone;
-import seedu.address.model.person.Sex;
-import seedu.address.model.person.WorkHours;
+import seedu.address.model.person.*;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
 
@@ -27,6 +20,7 @@ public class PersonBuilder {
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
     public static final String DEFAULT_BANK_ADDRESS = "ocbc 8374219";
     public static final int DEFAULT_WORK_HOURS = 0;
+    public static final boolean DEFAULT_ARCHIVE_STATUS = false;
 
     private Name firstName;
     private Name lastName;
@@ -37,6 +31,7 @@ public class PersonBuilder {
     private BankDetails bankDetails;
     private WorkHours hoursWorked;
     private Set<Tag> tags;
+    private ArchiveStatus archiveStatus;
 
     /**
      * Creates a {@code PersonBuilder} with the default details.
@@ -51,6 +46,7 @@ public class PersonBuilder {
         bankDetails = new BankDetails(DEFAULT_BANK_ADDRESS);
         hoursWorked = new WorkHours(DEFAULT_WORK_HOURS);
         tags = new HashSet<>();
+        archiveStatus = new ArchiveStatus(DEFAULT_ARCHIVE_STATUS);
     }
 
     /**
@@ -140,8 +136,13 @@ public class PersonBuilder {
         return this;
     }
 
+    public PersonBuilder withArchiveStatus(boolean archiveStatus) {
+        this.archiveStatus = new ArchiveStatus(archiveStatus);
+        return this;
+    }
+
     public Person build() {
-        return new Person(firstName, lastName, phone, sex, payRate, address, bankDetails, hoursWorked, tags);
+        return new Person(firstName, lastName, phone, sex, payRate, address, bankDetails, hoursWorked, tags, archiveStatus);
     }
 
 }
