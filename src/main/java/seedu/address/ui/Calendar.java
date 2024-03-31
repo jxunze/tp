@@ -82,7 +82,6 @@ public class Calendar extends UiPart<Region> {
                 double rectangleHeight = (calendarHeight / numberOfWeeks) - strokeWidth - spacingV;
                 rectangle.setHeight(rectangleHeight);
                 stackPane.getChildren().add(rectangle);
-                System.out.println("Day: " + day);
                 String dayMonth = day + " " + month.getDisplayName(TextStyle.FULL, Locale.ENGLISH);
                 ScheduleDate scheduleDate = scheduleDateMap.get(LocalDate.of(dateFocus.getYear(), month, day));
                 day++;
