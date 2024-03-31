@@ -1,6 +1,19 @@
+/*
+ * Adapted from Da9el00's Calendar.fxml
+ * https://gist.github.com/Da9el00/f4340927b8ba6941eb7562a3306e93b6
+ */
+
 package seedu.address.ui;
 
-import javafx.event.ActionEvent;
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.format.TextStyle;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
+
 import javafx.fxml.FXML;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Region;
@@ -12,30 +25,26 @@ import javafx.scene.text.Text;
 import seedu.address.model.person.Person;
 import seedu.address.model.schedule.ScheduleDate;
 
-import java.time.LocalDate;
-import java.time.Month;
-import java.time.format.TextStyle;
-import java.util.*;
-import java.util.stream.Collectors;
-
-
-/*
- * Adapted from Da9el00's Calendar.fxml
- * https://gist.github.com/Da9el00/f4340927b8ba6941eb7562a3306e93b6
+/**
+ * A graphic calendar that displays the schedule of a given month.
  */
 public class Calendar extends UiPart<Region> {
     private static final String FXML = "Calendar.fxml";
 
     // Number of weeks to display in the calendar
-    public static int NUMBER_OF_WEEKS = 4;
+    private static int numberOfWeeks = 4;
 
-    LocalDate dateFocus;
-    LocalDate today;
-    Set<ScheduleDate> scheduleDates;
+    private final LocalDate dateFocus;
+    private final LocalDate today;
+    private final Set<ScheduleDate> scheduleDates;
 
     @FXML
     private FlowPane calendar;
 
+    /**
+     * Creates a calendar with the given schedule dates.
+     * @param scheduleDates Schedule dates to display in the calendar.
+     */
     public Calendar(Set<ScheduleDate> scheduleDates) {
         super(FXML);
         dateFocus = LocalDate.now();
@@ -44,6 +53,9 @@ public class Calendar extends UiPart<Region> {
         drawCalendar();
     }
 
+    /**
+     * Creates a calendar with the given schedule dates and today's date.
+     */
     private void drawCalendar() {
         double calendarWidth = calendar.getPrefWidth();
         double calendarHeight = calendar.getPrefHeight();
@@ -58,7 +70,7 @@ public class Calendar extends UiPart<Region> {
         int day = dateFocus.getDayOfMonth() - dateFocus.getDayOfWeek().getValue();
         int currentMonthMaxDay = dateFocus.lengthOfMonth();
 
-        for (int i = 0; i < NUMBER_OF_WEEKS; i++) {
+        for (int i = 0; i < numberOfWeeks; i++) {
             for (int j = 0; j < 7; j++) {
                 StackPane stackPane = new StackPane();
                 Rectangle rectangle = new Rectangle();
@@ -67,7 +79,7 @@ public class Calendar extends UiPart<Region> {
                 rectangle.setStrokeWidth(strokeWidth);
                 double rectangleWidth = (calendarWidth / 7) - strokeWidth - spacingH;
                 rectangle.setWidth(rectangleWidth);
-                double rectangleHeight = (calendarHeight / NUMBER_OF_WEEKS) - strokeWidth - spacingV;
+                double rectangleHeight = (calendarHeight / numberOfWeeks) - strokeWidth - spacingV;
                 rectangle.setHeight(rectangleHeight);
                 stackPane.getChildren().add(rectangle);
                 System.out.println("Day: " + day);
@@ -79,10 +91,10 @@ public class Calendar extends UiPart<Region> {
                     month = month.plus(1);
                 }
                 Text date = new Text(dayMonth);
-                double textTranslationY = - (rectangleHeight / 2) * 0.75;
+                double textTranslationY = -(rectangleHeight / 2) * 0.75;
                 date.setTranslateY(textTranslationY);
                 stackPane.getChildren().add(date);
-                if(scheduleDate != null){
+                if (scheduleDate != null) {
                     createCalendarActivity(scheduleDate, rectangleHeight, rectangleWidth, stackPane);
                 }
                 if (today.getYear() == dateFocus.getYear() && today.getMonth() == dateFocus.getMonth()
@@ -94,6 +106,13 @@ public class Calendar extends UiPart<Region> {
         }
     }
 
+    /**
+     * Creates a calendar activity for a given date.
+     * @param scheduleDate Schedule date to create the calendar activity for.
+     * @param rectangleHeight Height of the rectangle.
+     * @param rectangleWidth Width of the rectangle.
+     * @param stackPane Stack pane to add the calendar activity to.
+     */
     private void createCalendarActivity(ScheduleDate scheduleDate, double rectangleHeight, double rectangleWidth,
                                         StackPane stackPane) {
         VBox calendarActivityBox = new VBox();
@@ -112,8 +131,20 @@ public class Calendar extends UiPart<Region> {
         stackPane.getChildren().add(calendarActivityBox);
     }
 
+    /**
+     * Creates a map of schedule dates with the date as the key.
+     * @return Map of schedule dates with the date as the key.
+     */
     private Map<LocalDate, ScheduleDate> createCalendarMap() {
         return scheduleDates.stream().collect(
                 Collectors.toMap(ScheduleDate::getDate, x -> x));
+    }
+
+    /**
+     * Sets the number of weeks to display in the calendar.
+     * @param numberOfWeeks Number of weeks to display in the calendar.
+     */
+    public static void setNumberOfWeeks(int numberOfWeeks) {
+        Calendar.numberOfWeeks = numberOfWeeks;
     }
 }
