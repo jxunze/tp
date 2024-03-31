@@ -41,8 +41,8 @@ public class CommandTestUtil {
     public static final double VALID_PAYRATE_BOB = 18.5;
     public static final String VALID_ADDRESS_AMY = "Block 312, Amy Street 1";
     public static final String VALID_ADDRESS_BOB = "Block 123, Bobby Street 3";
-    public static final String VALID_BANKDETAILS_AMY = "8374219837";
-    public static final String VALID_BANKDETAILS_BOB = "3214213212";
+    public static final String VALID_BANKDETAILS_AMY = "ocbc 8374219";
+    public static final String VALID_BANKDETAILS_BOB = "dbs 7777222201";
     public static final String VALID_TAG_WAITER = "waiter";
     public static final String VALID_TAG_COOK = "cook";
     public static final int VALID_WORK_HOURS_AMY = 10;
@@ -72,7 +72,7 @@ public class CommandTestUtil {
     public static final String INVALID_PAYRATE_DESC = " " + PREFIX_PAYRATE + "ut"; //'ut' is not an allowed payrate
     public static final String INVALID_PHONE_DESC = " " + PREFIX_PHONE + "911a"; // 'a' not allowed in phones
     public static final String INVALID_BANKDETAILS_DESC = " " + PREFIX_BANKDETAILS
-        + "3213-421321"; // '-' not allowed in bank details
+        + "3213*421321"; // '*' not allowed in bank details
     public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // '*' not allowed in tags
     public static final String INVALID_ADDRESS_DESC = " " + PREFIX_ADDRESS; // empty string not allowed for addresses
 
