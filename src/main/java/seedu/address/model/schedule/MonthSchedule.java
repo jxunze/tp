@@ -21,7 +21,7 @@ public class MonthSchedule implements Schedule {
     }
 
     @Override
-    public Set<ScheduleDate> getSchedule() {
+    public Set<ScheduleDate> getScheduleDates() {
         return schedule;
     }
 
@@ -61,7 +61,7 @@ public class MonthSchedule implements Schedule {
     public void resetData(Schedule newData) {
         schedule.clear();
         if (newData != null) {
-            schedule.addAll(newData.getSchedule());
+            schedule.addAll(newData.getScheduleDates());
         }
     }
 }

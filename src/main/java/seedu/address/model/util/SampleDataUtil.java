@@ -56,7 +56,7 @@ public class SampleDataUtil {
 
     public static Schedule getSampleSchedule() {
         Schedule sampleSchedule = new MonthSchedule();
-        LocalDate date = LocalDate.parse("2024-01-01");
+        LocalDate date = LocalDate.now();
         int count = 0;
         for (Person samplePerson : getSamplePersons()) {
             if (count % 3 == 0) {

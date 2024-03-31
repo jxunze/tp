@@ -5,6 +5,7 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.nio.file.Path;
 import java.time.LocalDate;
+import java.util.Set;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 
@@ -16,6 +17,7 @@ import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.schedule.MonthSchedule;
 import seedu.address.model.schedule.Schedule;
+import seedu.address.model.schedule.ScheduleDate;
 
 /**
  * Represents the in-memory model of the address book data.
@@ -128,6 +130,11 @@ public class ModelManager implements Model {
     @Override
     public Schedule getSchedule() {
         return schedule;
+    }
+
+    @Override
+    public Set<ScheduleDate> getScheduleDates() {
+        return schedule.getScheduleDates();
     }
 
     @Override

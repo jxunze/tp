@@ -12,7 +12,7 @@ public interface Schedule {
     /**
      * Returns the schedule as a Map.
      */
-    Set<ScheduleDate> getSchedule();
+    Set<ScheduleDate> getScheduleDates();
 
     /**
      * Adds a Person to the schedule on the given date.
