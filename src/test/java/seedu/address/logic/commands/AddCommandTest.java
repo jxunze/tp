@@ -11,6 +11,7 @@ import java.nio.file.Path;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Set;
 import java.util.function.Predicate;
 
 import org.junit.jupiter.api.Test;
@@ -26,6 +27,7 @@ import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.schedule.Schedule;
+import seedu.address.model.schedule.ScheduleDate;
 import seedu.address.testutil.PersonBuilder;
 
 public class AddCommandTest {
@@ -176,6 +178,11 @@ public class AddCommandTest {
 
         @Override
         public Schedule getSchedule() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public Set<ScheduleDate> getScheduleDates() {
             throw new AssertionError("This method should not be called.");
         }
 
