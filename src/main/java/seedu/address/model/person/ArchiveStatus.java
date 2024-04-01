@@ -10,7 +10,6 @@ public class ArchiveStatus {
     public static final String MESSAGE_CONSTRAINTS = "Archive status can only be '0' for not archived or "
         + "'1' for archived.";
     public boolean isArchived;
-    private int archiveStatus;
 
     /**
      * Constructor for ArchiveStatus that initializes the archive status to not archived.
@@ -23,25 +22,25 @@ public class ArchiveStatus {
      * Sets the archive status of a person to be archived.
      */
     public void setArchiveStatusTrue() {
-        this.archiveStatus = 1;
+        this.isArchived = true;
     }
 
     /**
      * Sets the archive status of a person to be not archived.
      */
     public void setArchiveStatusFalse() {
-        this.archiveStatus = 0;
+        this.isArchived = false;
     }
 
     @Override
     public String toString() {
-        return archiveStatus == 1 ? "Archived" : "Not Archived";
+        return isArchived ? "Archived" : "Not Archived";
     }
 
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
             || (other instanceof ArchiveStatus // instanceof handles nulls
-            && archiveStatus == ((ArchiveStatus) other).archiveStatus); // state check
+            && isArchived == ((ArchiveStatus) other).isArchived); // state check
     }
 }

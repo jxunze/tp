@@ -143,7 +143,7 @@ class JsonAdaptedPerson {
 
         final Set<Tag> modelTags = new HashSet<>(personTags);
 
-        final ArchiveStatus modelArchiveStatus = new ArchiveStatus(false);
+        final ArchiveStatus modelArchiveStatus = new ArchiveStatus(archiveStatus);
 
         return new Person(modelFirstName, modelLastName, modelPhone, modelSex, modelPayRate,
             modelAddress,
