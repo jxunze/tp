@@ -71,11 +71,6 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public Path getArchiveBookFilePath() {
-        return userPrefs.getArchiveBookFilePath();
-    }
-
-    @Override
     public void setAddressBookFilePath(Path addressBookFilePath) {
         requireNonNull(addressBookFilePath);
         userPrefs.setAddressBookFilePath(addressBookFilePath);
