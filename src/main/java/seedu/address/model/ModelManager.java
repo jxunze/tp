@@ -134,6 +134,12 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public ObservableList<Person> getFilteredUnarchivedPersonList() {
+        this.updateFilteredPersonList(PREDICATE_SHOW_ALL_UNARCHIVED_PERSONS);
+        return filteredPersons;
+    }
+
+    @Override
     public void updateFilteredPersonList(Predicate<Person> predicate) {
         requireNonNull(predicate);
         filteredPersons.setPredicate(predicate);
