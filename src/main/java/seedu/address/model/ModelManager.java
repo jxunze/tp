@@ -133,9 +133,21 @@ public class ModelManager implements Model {
         return filteredPersons;
     }
 
+    /** Returns an unmodifiable view of the list of unarchived {@code Person} backed by the internal list of
+     * {@code addressBook}
+     * */
     @Override
     public ObservableList<Person> getFilteredUnarchivedPersonList() {
         this.updateFilteredPersonList(PREDICATE_SHOW_ALL_UNARCHIVED_PERSONS);
+        return filteredPersons;
+    }
+
+    /** Returns an unmodifiable view of the list of archived {@code Person} backed by the internal list of
+     * {@code addressBook}
+     * */
+    @Override
+    public ObservableList<Person> getFilteredArchivedPersonList() {
+        this.updateFilteredPersonList(PREDICATE_SHOW_ALL_ARCHIVED_PERSONS);
         return filteredPersons;
     }
 

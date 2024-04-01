@@ -89,6 +89,9 @@ public interface Model {
     /** Returns an unmodifiable view of the filtered un-archived person list */
     ObservableList<Person> getFilteredUnarchivedPersonList();
 
+    /** Returns an unmodifiable view of the filtered archived person list */
+    ObservableList<Person> getFilteredArchivedPersonList();
+
     /**
      * Updates the filter of the filtered person list to filter by the given {@code predicate}.
      * @throws NullPointerException if {@code predicate} is null.
