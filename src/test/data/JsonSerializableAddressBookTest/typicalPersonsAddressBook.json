@@ -8,7 +8,7 @@
       "payRate": 14.5,
       "phone": "94351253",
       "address": "123, Jurong West Ave 6, #08-111",
-      "bankDetails": "12345678",
+      "bankDetails": "dbs 1234567890",
       "tags": [
         "friends"
       ]
@@ -20,7 +20,7 @@
       "sex": "m",
       "payRate": 14.5,
       "address": "311, Clementi Ave 2, #02-25",
-      "bankDetails": "12345678",
+      "bankDetails": "ocbc 1234567",
       "tags": [
         "owesMoney",
         "friends"
@@ -33,7 +33,7 @@
       "payRate": 14.5,
       "phone": "95352563",
       "address": "wall street",
-      "bankDetails": "12345678",
+      "bankDetails": "hsbc 0987654321",
       "tags": []
     },
     {
@@ -43,7 +43,7 @@
       "sex": "m",
       "payRate": 14.5,
       "address": "10th street",
-      "bankDetails": "12345678",
+      "bankDetails": "uob 8888777700",
       "tags": [
         "friends"
       ]
@@ -54,7 +54,7 @@
       "phone": "94823224",
       "sex": "f",
       "payRate": 14.5,
-      "bankDetails": "12345678",
+      "bankDetails": "posb 369369369",
       "address": "michegan ave",
       "tags": []
     },
@@ -65,7 +65,7 @@
       "sex": "f",
       "payRate": 14.5,
       "address": "little tokyo",
-      "bankDetails": "12345678",
+      "bankDetails": "ocbc 7654321",
       "tags": []
     },
     {
@@ -74,7 +74,7 @@
       "phone": "93482442",
       "sex": "m",
       "payRate": 14.5,
-      "bankDetails": "12345678",
+      "bankDetails": "other maybank 5554443332",
       "address": "4th street",
       "tags": []
     }

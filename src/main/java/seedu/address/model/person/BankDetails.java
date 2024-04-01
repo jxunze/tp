@@ -9,9 +9,21 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class BankDetails {
 
-    public static final String MESSAGE_CONSTRAINTS = "Bank details can only contain numbers "
-        + "and it should not contain a dash (-)";
-    public static final String VALIDATION_REGEX = "^\\d*$";
+    public static final String MESSAGE_CONSTRAINTS = "Bank details should be in this format: "
+        + "<bank name> <account number> \n"
+        + "Accepted banks and corresponding digit length: OCBC {7}, POSB {9}, UOB {10}, DBS {10}, "
+        + "Standard Chartered {10}, HSBC {any length}, Others {any length}\n"
+        + "Examples: -b posb 1234567890/ -b hsbc 172002492/ -b other maybank 712834957521";
+    public static final String DBS_UOB_STANDARD_REGEX = "(?:dbs|uob|standard chartered)\\s+\\d{10}";
+    public static final String POSB_REGEX = "posb\\s+\\d{9}";
+    public static final String OCBC_REGEX = "ocbc\\s+\\d{7}";
+    public static final String HSBC_REGEX = "hsbc\\s+\\d+";
+    public static final String OTHERS_REGEX = "other\\s+\\w+\\s+\\d+";
+
+    public static final String BLANK_REGEX = "\\s*";
+
+    public static final String VALIDATION_REGEX = DBS_UOB_STANDARD_REGEX + "|"
+        + POSB_REGEX + "|" + OCBC_REGEX + "|" + HSBC_REGEX + "|" + OTHERS_REGEX + "|" + BLANK_REGEX;
 
     public final String value;
 
