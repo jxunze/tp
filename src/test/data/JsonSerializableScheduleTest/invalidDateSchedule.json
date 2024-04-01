@@ -1,0 +1,16 @@
+{
+  "scheduleDates" : [ {
+    "date" : "2024-04-06f",
+    "persons" : [ {
+      "firstName" : "Roy",
+      "lastName" : "Balakrishnan",
+      "phone" : "92624417",
+      "sex" : "m",
+      "payRate" : 10.0,
+      "address" : "Blk 45 Aljunied Street 85, #11-31",
+      "bankDetails" : "5501089550",
+      "workHours" : 0,
+      "tags" : [ "colleagues" ]
+    } ]
+  } ]
+}
