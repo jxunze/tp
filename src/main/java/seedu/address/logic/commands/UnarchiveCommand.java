@@ -2,6 +2,7 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.commands.AddCommand.MESSAGE_DUPLICATE_PERSON;
+import static seedu.address.model.Model.PREDICATE_SHOW_ALL_ARCHIVED_PERSONS;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_UNARCHIVED_PERSONS;
 
 import java.util.List;
@@ -61,10 +62,11 @@ public class UnarchiveCommand extends Command {
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
-        List<Person> lastShownList = model.getFilteredPersonList();
+        model.updateFilteredPersonList(PREDICATE_SHOW_ALL_ARCHIVED_PERSONS);
+        List<Person> archiveList = model.getFilteredPersonList();
         boolean exists = false;
         Person personToUnarchive = null;
-        for (Person person : lastShownList) {
+        for (Person person : archiveList) {
             if (person.getPhone().equals(targetPhone)) {
                 exists = true;
                 personToUnarchive = person;
@@ -72,7 +74,7 @@ public class UnarchiveCommand extends Command {
             }
         }
         if (!exists) {
-            throw new CommandException(Messages.MESSAGE_PERSON_NOT_FOUND);
+            throw new CommandException(Messages.MESSAGE_PERSON_NOT_ARCHIVED);
         }
 
         Person unarchivedPerson = createUnarchivedPerson(personToUnarchive);
