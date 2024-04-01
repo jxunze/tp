@@ -9,9 +9,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.schedule.MonthSchedule;
 import seedu.address.model.schedule.Schedule;
 import seedu.address.model.schedule.ScheduleDate;
+import seedu.address.model.schedule.ScheduleManager;
 
 /**
  * An Immutable Schedule that is serializable to JSON format.
@@ -46,12 +46,11 @@ class JsonSerializableSchedule {
      * @throws IllegalValueException if there were any data constraints violated.
      */
     public Schedule toModelType() throws IllegalValueException {
-        Schedule schedule = new MonthSchedule();
+        Schedule schedule = new ScheduleManager();
         for (JsonAdaptedScheduleDate jsonAdaptedScheduleDate : scheduleDates) {
             ScheduleDate scheduleDate = jsonAdaptedScheduleDate.toModelType();
             schedule.addScheduleDate(scheduleDate);
         }
         return schedule;
     }
-
 }

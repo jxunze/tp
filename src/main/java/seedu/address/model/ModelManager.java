@@ -15,9 +15,9 @@ import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
-import seedu.address.model.schedule.MonthSchedule;
 import seedu.address.model.schedule.Schedule;
 import seedu.address.model.schedule.ScheduleDate;
+import seedu.address.model.schedule.ScheduleManager;
 
 /**
  * Represents the in-memory model of the address book data.
@@ -46,7 +46,7 @@ public class ModelManager implements Model {
     }
 
     public ModelManager() {
-        this(new AddressBook(), new UserPrefs(), new MonthSchedule());
+        this(new AddressBook(), new UserPrefs(), new ScheduleManager());
     }
 
     //=========== UserPrefs ==================================================================================
@@ -116,7 +116,6 @@ public class ModelManager implements Model {
     @Override
     public void setPerson(Person target, Person editedPerson) {
         requireAllNonNull(target, editedPerson);
-
         addressBook.setPerson(target, editedPerson);
     }
 

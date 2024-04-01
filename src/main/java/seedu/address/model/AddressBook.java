@@ -8,8 +8,8 @@ import javafx.collections.ObservableList;
 import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.UniquePersonList;
-import seedu.address.model.schedule.MonthSchedule;
 import seedu.address.model.schedule.Schedule;
+import seedu.address.model.schedule.ScheduleManager;
 
 /**
  * Wraps all data at the address-book level
@@ -29,7 +29,7 @@ public class AddressBook implements ReadOnlyAddressBook {
      */
     {
         persons = new UniquePersonList();
-        schedule = new MonthSchedule();
+        schedule = new ScheduleManager();
     }
 
     public AddressBook() {}

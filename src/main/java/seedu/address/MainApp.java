@@ -21,8 +21,8 @@ import seedu.address.model.ModelManager;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.UserPrefs;
-import seedu.address.model.schedule.MonthSchedule;
 import seedu.address.model.schedule.Schedule;
+import seedu.address.model.schedule.ScheduleManager;
 import seedu.address.model.util.SampleDataUtil;
 import seedu.address.storage.AddressBookStorage;
 import seedu.address.storage.JsonAddressBookStorage;
@@ -106,7 +106,7 @@ public class MainApp extends Application {
         } catch (DataLoadingException e) {
             logger.warning("Data file at " + storage.getScheduleFilePath() + " could not be loaded."
                     + " Will be starting with an empty Schedule.");
-            scheduleInitialData = new MonthSchedule();
+            scheduleInitialData = new ScheduleManager();
         }
 
         return new ModelManager(abInitialData, userPrefs, scheduleInitialData);

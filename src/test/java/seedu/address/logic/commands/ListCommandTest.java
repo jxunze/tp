@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
-import seedu.address.model.schedule.MonthSchedule;
+import seedu.address.model.schedule.ScheduleManager;
 
 /**
  * Contains integration tests (interaction with the Model) and unit tests for ListCommand.
@@ -23,8 +23,8 @@ public class ListCommandTest {
 
     @BeforeEach
     public void setUp() {
-        model = new ModelManager(getTypicalAddressBook(), new UserPrefs(), new MonthSchedule());
-        expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs(), new MonthSchedule());
+        model = new ModelManager(getTypicalAddressBook(), new UserPrefs(), new ScheduleManager());
+        expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs(), new ScheduleManager());
     }
 
     @Test

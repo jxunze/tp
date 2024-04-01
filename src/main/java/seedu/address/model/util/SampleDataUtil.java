@@ -15,8 +15,8 @@ import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.Sex;
 import seedu.address.model.person.WorkHours;
-import seedu.address.model.schedule.MonthSchedule;
 import seedu.address.model.schedule.Schedule;
+import seedu.address.model.schedule.ScheduleManager;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -55,7 +55,7 @@ public class SampleDataUtil {
     }
 
     public static Schedule getSampleSchedule() {
-        Schedule sampleSchedule = new MonthSchedule();
+        Schedule sampleSchedule = new ScheduleManager();
         LocalDate date = LocalDate.now();
         int count = 0;
         for (Person samplePerson : getSamplePersons()) {
