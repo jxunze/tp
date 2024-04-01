@@ -15,6 +15,12 @@ public interface Model {
     /** {@code Predicate} that always evaluate to true */
     Predicate<Person> PREDICATE_SHOW_ALL_PERSONS = unused -> true;
 
+    /** {@code Predicate} that evaluates to true when the person is not archived */
+    Predicate<Person> PREDICATE_SHOW_ALL_UNARCHIVED_PERSONS = person -> !person.getArchiveStatus().isArchived;
+
+    /** {@code Predicate} that evaluates to true when the person is archived */
+    Predicate<Person> PREDICATE_SHOW_ALL_ARCHIVED_PERSONS = person -> person.getArchiveStatus().isArchived;
+
     /**
      * Replaces user prefs data with the data in {@code userPrefs}.
      */
@@ -104,4 +110,6 @@ public interface Model {
     void updatePerson(Person personToUpdate);
 
     void archivePerson(Person personToArchive, Person archivedPerson);
+
+    void unarchivePerson(Person personToUnarchive, Person unarchivedPerson);
 }

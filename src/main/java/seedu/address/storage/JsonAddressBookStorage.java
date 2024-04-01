@@ -81,18 +81,4 @@ public class JsonAddressBookStorage implements AddressBookStorage {
         JsonUtil.saveJsonFile(new JsonSerializableAddressBook(addressBook), filePath);
     }
 
-    @Override
-    public void saveArchiveBook(ReadOnlyAddressBook archiveBook) throws IOException {
-        saveArchiveBook(archiveBook, filePath);
-    }
-
-    @Override
-    public void saveArchiveBook(ReadOnlyAddressBook archiveBook, Path filePath) throws IOException {
-        requireNonNull(archiveBook);
-        requireNonNull(filePath);
-
-        FileUtil.createIfMissing(filePath);
-        JsonUtil.saveJsonFile(new JsonSerializableAddressBook(archiveBook), filePath);
-    }
-
 }

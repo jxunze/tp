@@ -107,7 +107,7 @@ public class ModelManager implements Model {
     @Override
     public void addPerson(Person person) {
         addressBook.addPerson(person);
-        updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+        updateFilteredPersonList(PREDICATE_SHOW_ALL_UNARCHIVED_PERSONS);
     }
 
     @Override
@@ -120,6 +120,11 @@ public class ModelManager implements Model {
     @Override
     public void archivePerson(Person target, Person archivedPerson) {
         addressBook.archivePerson(target, archivedPerson);
+    }
+
+    @Override
+    public void unarchivePerson(Person target, Person unarchivedPerson) {
+        addressBook.unarchivePerson(target, unarchivedPerson);
     }
 
     //=========== Filtered Person List Accessors =============================================================
