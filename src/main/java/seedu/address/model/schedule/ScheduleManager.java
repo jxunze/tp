@@ -9,14 +9,14 @@ import seedu.address.model.person.Person;
 /**
  * Represents a Schedule that maps lists of Persons to dates.
  */
-public class MonthSchedule implements Schedule {
+public class ScheduleManager implements Schedule {
     // The schedule is a set of ScheduleDates.
     private final Set<ScheduleDate> schedule;
 
     /**
      * Creates a MonthSchedule with an empty schedule.
      */
-    public MonthSchedule() {
+    public ScheduleManager() {
         this.schedule = new HashSet<>();
     }
 
@@ -40,6 +40,12 @@ public class MonthSchedule implements Schedule {
         schedule.add(newScheduleDate);
     }
 
+    /**
+     * Adds a ScheduleDate to the schedule.
+     * Used only by JsonAdaptedSchedule to convert JSON data to a Schedule,
+     * so there is no need to check for duplicates.
+     * @param scheduleDate the ScheduleDate to add
+     */
     @Override
     public void addScheduleDate(ScheduleDate scheduleDate) {
         schedule.add(scheduleDate);
@@ -63,5 +69,12 @@ public class MonthSchedule implements Schedule {
         if (newData != null) {
             schedule.addAll(newData.getScheduleDates());
         }
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        return other == this // short circuit if same object
+                || (other instanceof ScheduleManager // instanceof handles nulls
+                && schedule.equals(((ScheduleManager) other).schedule));
     }
 }
