@@ -41,7 +41,7 @@ public class JsonAdaptedPersonTest {
         .map(JsonAdaptedTag::new)
         .collect(Collectors.toList());
 
-    private static final boolean VALID_ARCHIVE_STATUS = BENSON.getArchiveStatus().isArchived;
+    private static final boolean VALID_ARCHIVE_STATUS = BENSON.getArchiveStatus().getArchiveStatus();
 
     @Test
     public void toModelType_validPersonDetails_returnsPerson() throws Exception {

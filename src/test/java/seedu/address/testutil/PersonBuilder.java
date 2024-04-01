@@ -3,7 +3,15 @@ package seedu.address.testutil;
 import java.util.HashSet;
 import java.util.Set;
 
-import seedu.address.model.person.*;
+import seedu.address.model.person.Address;
+import seedu.address.model.person.ArchiveStatus;
+import seedu.address.model.person.BankDetails;
+import seedu.address.model.person.Name;
+import seedu.address.model.person.PayRate;
+import seedu.address.model.person.Person;
+import seedu.address.model.person.Phone;
+import seedu.address.model.person.Sex;
+import seedu.address.model.person.WorkHours;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
 
@@ -136,13 +144,20 @@ public class PersonBuilder {
         return this;
     }
 
+    /**
+     * Sets the {@code ArchiveStatus} of the {@code Person} that we are building.
+     */
     public PersonBuilder withArchiveStatus(boolean archiveStatus) {
         this.archiveStatus = new ArchiveStatus(archiveStatus);
         return this;
     }
 
+    /**
+     * Builds the person object.
+     */
     public Person build() {
-        return new Person(firstName, lastName, phone, sex, payRate, address, bankDetails, hoursWorked, tags, archiveStatus);
+        return new Person(firstName, lastName, phone, sex, payRate, address, bankDetails, hoursWorked,
+                tags, archiveStatus);
     }
 
 }
