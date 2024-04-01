@@ -71,12 +71,12 @@ public interface Model {
     Set<ScheduleDate> getScheduleDates();
 
     /**
-     * Returns true if a person with the same identity as {@code person} exists in the address book.
+     * Adds {@code person} on {@code date} to the {@code Schedule} in the model.
      */
     void addPersonToSchedule(Person person, LocalDate date);
 
     /**
-     * Returns true if a person with the same identity as {@code person} exists in the address book.
+     * Removes {@code person} on {@code date} from the {@code Schedule} in the model.
      */
     void removePersonFromSchedule(Person person, LocalDate date);
 
