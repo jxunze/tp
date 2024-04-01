@@ -43,7 +43,6 @@
                <Insets right="19.0" />
             </padding>
           </HBox>
-      
       </AnchorPane>
    </children>
 </StackPane>

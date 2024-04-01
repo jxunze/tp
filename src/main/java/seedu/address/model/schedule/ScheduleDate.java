@@ -61,4 +61,11 @@ public class ScheduleDate {
         return date.hashCode();
     }
 
+    @Override
+    public boolean equals(Object other) {
+        return other == this // short circuit if same object
+                || (other instanceof ScheduleDate // instanceof handles nulls
+                && date.equals(((ScheduleDate) other).date)) // state check
+                && persons.equals(((ScheduleDate) other).persons);
+    }
 }
