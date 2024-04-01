@@ -1,7 +1,5 @@
 package seedu.address.model.person;
 
-import seedu.address.logic.commands.ArchiveCommand;
-
 /**
  * Represents the archive status of a person in the contact book.
  */
@@ -9,13 +7,17 @@ public class ArchiveStatus {
 
     public static final String MESSAGE_CONSTRAINTS = "Archive status can only be '0' for not archived or "
         + "'1' for archived.";
-    public boolean isArchived;
+    private boolean isArchived;
 
     /**
      * Constructor for ArchiveStatus that initializes the archive status to not archived.
      */
     public ArchiveStatus(boolean isArchived) {
         this.isArchived = isArchived;
+    }
+
+    public boolean getArchiveStatus() {
+        return isArchived;
     }
 
     /**

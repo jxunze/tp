@@ -46,10 +46,10 @@ public class UnarchiveCommand extends Command {
 
         ArchiveStatus updatedArchiveStatus = new ArchiveStatus(false);
 
-        return new Person(personToUnarchive.getFirstName(), personToUnarchive.getLastName(), personToUnarchive.getPhone(),
-                personToUnarchive.getSex(), personToUnarchive.getPayRate(), personToUnarchive.getAddress(),
-                personToUnarchive.getBankDetails(), personToUnarchive.getWorkHours(), personToUnarchive.getTags(),
-                updatedArchiveStatus);
+        return new Person(personToUnarchive.getFirstName(), personToUnarchive.getLastName(),
+                personToUnarchive.getPhone(), personToUnarchive.getSex(), personToUnarchive.getPayRate(),
+                personToUnarchive.getAddress(), personToUnarchive.getBankDetails(), personToUnarchive.getWorkHours(),
+                personToUnarchive.getTags(), updatedArchiveStatus);
     }
 
     /**

@@ -98,6 +98,10 @@ public class UniquePersonList implements Iterable<Person> {
         internalList.set(index, archivedPerson);
     }
 
+    /**
+     * Unarchives the equivalent person from the list.
+     * The person must exist in the list.
+     */
     public void unarchive(Person target, Person unarchivedPerson) {
         requireAllNonNull(target);
 
@@ -144,7 +148,7 @@ public class UniquePersonList implements Iterable<Person> {
     public ObservableList<Person> getUnarchivedPersonList() {
         ObservableList<Person> unarchivedPersons = FXCollections.observableArrayList();
         for (Person person : internalList) {
-            if (!person.getArchiveStatus().isArchived) {
+            if (!person.getArchiveStatus().getArchiveStatus()) {
                 unarchivedPersons.add(person);
             }
         }
@@ -157,7 +161,7 @@ public class UniquePersonList implements Iterable<Person> {
     public ObservableList<Person> getArchivedPersonList() {
         ObservableList<Person> archivedPersons = FXCollections.observableArrayList();
         for (Person person : internalList) {
-            if (person.getArchiveStatus().isArchived) {
+            if (person.getArchiveStatus().getArchiveStatus()) {
                 archivedPersons.add(person);
             }
         }
