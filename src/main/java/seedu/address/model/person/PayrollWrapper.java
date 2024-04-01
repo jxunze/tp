@@ -22,6 +22,10 @@ public class PayrollWrapper {
         return hoursWorked * person.getPayRate().value;
     }
 
+    public Person getPerson() {
+        return person;
+    }
+
     @Override
     public int hashCode() {
         return person.hashCode();

@@ -3,11 +3,15 @@ package seedu.address.model;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
+import java.io.File;
 import java.nio.file.Path;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import java.util.Map;
 import java.util.function.Predicate;
+import java.util.logging.Filter;
 import java.util.logging.Logger;
 
 import javafx.collections.FXCollections;
@@ -34,6 +38,8 @@ public class ModelManager implements Model {
     private final Schedule schedule;
     private final FilteredList<Person> filteredPersons;
 
+    private final ObservableList<PayrollWrapper> payrolls;
+
     /**
      * Initializes a ModelManager with the given addressBook and userPrefs.
      */
@@ -47,6 +53,7 @@ public class ModelManager implements Model {
         this.userPrefs = new UserPrefs(userPrefs);
         this.schedule = schedule;
         filteredPersons = new FilteredList<>(this.addressBook.getPersonList());
+        payrolls = FXCollections.observableArrayList();
     }
 
     public ModelManager() {
@@ -165,14 +172,19 @@ public class ModelManager implements Model {
     //=========== Payroll  ===================================================================================
 
     @Override
-    public ObservableList<PayrollWrapper> generatePayroll(LocalDate startDate, LocalDate endDate) {
+    public void generatePayroll(LocalDate startDate, LocalDate endDate) {
         requireAllNonNull(startDate, endDate);
-        Map<Person, Float> hoursWorked = schedule.getHoursWorked(startDate, endDate);
-        ObservableList<PayrollWrapper> payrolls = FXCollections.observableArrayList(); // Use ObservableList directly
-
-        for (Map.Entry<Person, Float> entry : hoursWorked.entrySet()) {
-            payrolls.add(new PayrollWrapper(entry.getKey(), entry.getValue()));
+        payrolls.clear();
+        List<PayrollWrapper> newPayrolls = new ArrayList<>();
+        Map<Person, Double> hoursWorked = schedule.getHoursWorked(startDate, endDate);
+        for (Map.Entry<Person, Double> entry : hoursWorked.entrySet()) {
+            newPayrolls.add(new PayrollWrapper(entry.getKey(), entry.getValue()));
         }
+        payrolls.setAll(newPayrolls);
+    }
+
+    @Override
+    public ObservableList<PayrollWrapper> getPayrollList() {
         return payrolls;
     }
 

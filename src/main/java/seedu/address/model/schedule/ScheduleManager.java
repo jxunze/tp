@@ -68,15 +68,15 @@ public class ScheduleManager implements Schedule {
     }
 
     @Override
-    public Map<Person, Float> getHoursWorked(LocalDate startDate, LocalDate endDate) {
-        Map<Person, Float> hoursWorked = new HashMap<>();
+    public Map<Person, Double> getHoursWorked(LocalDate startDate, LocalDate endDate) {
+        Map<Person, Double> hoursWorked = new HashMap<>();
         for (ScheduleDate scheduleDate : schedule) {
             if (isAfterOrEqual(scheduleDate.getDate(), startDate) && isBeforeOrEqual(scheduleDate.getDate(), endDate)) {
                 for (Person person : scheduleDate.getPersons()) {
                     if (!hoursWorked.containsKey(person)) {
-                        hoursWorked.put(person, 0.0f);
+                        hoursWorked.put(person, 0.0);
                     }
-                    hoursWorked.put(person, hoursWorked.get(person) + 8.0f);
+                    hoursWorked.put(person, hoursWorked.get(person) + 8.0);
                 }
             }
         }

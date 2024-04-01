@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ENDDATE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STARTDATE;
 import java.time.LocalDate;
+import seedu.address.commons.core.LogsCenter;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 
@@ -29,7 +30,8 @@ public class PayrollCommand extends Command{
         requireNonNull(model);
         try {
             model.generatePayroll(startDate, endDate);
-            return new CommandResult(String.format(MESSAGE_SUCCESS, startDate, endDate));
+            return new CommandResult(String.format(MESSAGE_SUCCESS, startDate, endDate), false, false,
+                    false, false, true);
         } catch (Exception e) {
             return new CommandResult(MESSAGE_FAILURE);
         }

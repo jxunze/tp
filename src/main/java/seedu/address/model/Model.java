@@ -147,5 +147,10 @@ public interface Model {
      * @param startDate The start date of the period.
      * @param endDate The end date of the period.
      */
-    ObservableList<PayrollWrapper> generatePayroll(LocalDate startDate, LocalDate endDate);
+    void generatePayroll(LocalDate startDate, LocalDate endDate);
+
+    /**
+     * Returns the payroll list.
+     */
+    ObservableList<PayrollWrapper> getPayrollList();
 }

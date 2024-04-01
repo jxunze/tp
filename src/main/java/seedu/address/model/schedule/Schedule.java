@@ -39,5 +39,5 @@ public interface Schedule {
     /**
      * Returns the number of hours worked by each person in the schedule between the given dates.
      */
-    Map<Person, Float> getHoursWorked(LocalDate startDate, LocalDate endDate);
+    Map<Person, Double> getHoursWorked(LocalDate startDate, LocalDate endDate);
 }
