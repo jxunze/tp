@@ -69,6 +69,7 @@ public class PersonBuilder {
         payRate = personToCopy.getPayRate();
         bankDetails = personToCopy.getBankDetails();
         tags = new HashSet<>(personToCopy.getTags());
+        archiveStatus = personToCopy.getArchiveStatus();
     }
 
 

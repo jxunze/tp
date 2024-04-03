@@ -40,6 +40,7 @@ public class TypicalPersons {
         .withPhone("94351253")
         .withTags("friends")
         .withBankDetails("dbs 1234567890")
+        .withArchiveStatus(false)
         .build();
     public static final Person BENSON = new PersonBuilder()
         .withFirstName("Benson")
@@ -50,6 +51,7 @@ public class TypicalPersons {
         .withPhone("98765432")
         .withTags("owesMoney", "friends")
         .withBankDetails("ocbc 1234567")
+        .withArchiveStatus(false)
         .build();
     public static final Person CARL = new PersonBuilder()
         .withFirstName("Carl")
@@ -59,6 +61,7 @@ public class TypicalPersons {
         .withPayRate(14.5)
         .withAddress("wall street")
         .withBankDetails("hsbc 0987654321")
+        .withArchiveStatus(false)
         .build();
     public static final Person DANIEL = new PersonBuilder()
         .withFirstName("Daniel")
@@ -69,6 +72,7 @@ public class TypicalPersons {
         .withAddress("10th street")
         .withTags("friends")
         .withBankDetails("uob 8888777700")
+        .withArchiveStatus(false)
         .build();
     public static final Person ELLE = new PersonBuilder()
         .withFirstName("Elle")
@@ -78,6 +82,7 @@ public class TypicalPersons {
         .withPayRate(14.5)
         .withAddress("michegan ave")
         .withBankDetails("posb 369369369")
+        .withArchiveStatus(false)
         .build();
     public static final Person FIONA = new PersonBuilder()
         .withFirstName("Fiona")
@@ -87,6 +92,7 @@ public class TypicalPersons {
         .withPayRate(14.5)
         .withAddress("little tokyo")
         .withBankDetails("ocbc 7654321")
+        .withArchiveStatus(false)
         .build();
     public static final Person GEORGE = new PersonBuilder()
         .withFirstName("George")
@@ -96,6 +102,7 @@ public class TypicalPersons {
         .withPayRate(14.5)
         .withAddress("4th street")
         .withBankDetails("other maybank 5554443332")
+        .withArchiveStatus(false)
         .build();
 
     // Manually added
@@ -106,6 +113,7 @@ public class TypicalPersons {
         .withSex("m")
         .withPayRate(14.5)
         .withAddress("little india")
+        .withArchiveStatus(false)
         .build();
     public static final Person IDA = new PersonBuilder()
         .withFirstName("Ida")
@@ -114,6 +122,7 @@ public class TypicalPersons {
         .withSex("f")
         .withPayRate(14.5)
         .withAddress("chicago ave")
+        .withArchiveStatus(false)
         .build();
 
     // Manually added - Person's details found in {@code CommandTestUtil}
@@ -126,6 +135,7 @@ public class TypicalPersons {
         .withAddress(VALID_ADDRESS_AMY)
         .withBankDetails(VALID_BANKDETAILS_AMY).withWorkedHours(VALID_WORK_HOURS_AMY)
         .withTags(VALID_TAG_COOK)
+        .withArchiveStatus(false)
         .build();
     public static final Person BOB = new PersonBuilder()
         .withFirstName(VALID_FIRSTNAME_BOB)
@@ -136,6 +146,7 @@ public class TypicalPersons {
         .withAddress(VALID_ADDRESS_BOB)
         .withBankDetails(VALID_BANKDETAILS_BOB).withWorkedHours(VALID_WORK_HOURS_BOB)
         .withTags(VALID_TAG_WAITER, VALID_TAG_COOK)
+        .withArchiveStatus(false)
         .build();
 
     public static final String KEYWORD_MATCHING_MEIER = "Meier"; // A keyword that matches MEIER
