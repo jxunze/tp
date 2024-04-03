@@ -37,7 +37,7 @@ FnBuddy is an innovative employee contact management application designed specif
 3. Copy the file to the folder you want to use as the home folder for your FnBuddy.
 4. Open a command terminal, cd (change directory) into the folder you put the jar file in, and use the `java -jar fnbuddy.jar` command to run the application.
 5. A GUI similar to the one below should appear in a few seconds. Note how the app contains some sample data.
-![Sample UI](./images/Sample_UI.jpg)
+![UI](./images/Ui.png)
 6. Type the command in the command box and press Enter to execute it. e.g., typing `help` and pressing Enter will open the help window.
 
 Some example commands you can try:

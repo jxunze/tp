@@ -1,0 +1,52 @@
+{
+  "scheduleDates": [
+    {
+      "date": "2024-03-31",
+      "persons": [
+        {
+          "firstName": "Alice",
+          "lastName": "Pauline",
+          "sex": "f",
+          "payRate": 14.5,
+          "phone": "94351253",
+          "address": "123, Jurong West Ave 6, #08-111",
+          "bankDetails": "dbs 1234567890",
+          "tags": [
+            "friends"
+          ]
+        },
+        {
+          "firstName": "Benson",
+          "lastName": "Meier",
+          "phone": "98765432",
+          "sex": "m",
+          "payRate": 14.5,
+          "address": "311, Clementi Ave 2, #02-25",
+          "bankDetails": "ocbc 1234567",
+          "tags": [
+            "owesMoney",
+            "friends"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2024-04-01",
+      "persons": [
+        {
+          "firstName": "Benson",
+          "lastName": "Meier",
+          "phone": "98765432",
+          "sex": "m",
+          "payRate": 14.5,
+          "address": "311, Clementi Ave 2, #02-25",
+          "bankDetails": "ocbc 1234567",
+          "tags": [
+            "owesMoney",
+            "friends"
+          ]
+        }
+      ]
+    }
+  ]
+}

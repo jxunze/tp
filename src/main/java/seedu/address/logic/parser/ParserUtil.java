@@ -2,6 +2,7 @@ package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
 
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
@@ -182,4 +183,20 @@ public class ParserUtil {
         }
     }
 
+    /**
+     * Parses a string representation of a date into a LocalDate object.
+     *
+     * @param date A string representing a date.
+     * @return A LocalDate object representing the parsed date.
+     * @throws ParseException if the date string is invalid or cannot be parsed.
+     */
+    public static LocalDate parseDate(String date) throws ParseException {
+        requireNonNull(date);
+        String trimmedDate = date.trim();
+        try {
+            return LocalDate.parse(trimmedDate);
+        } catch (Exception e) {
+            throw new ParseException("Invalid date format. Please enter a date in the format yyyy-mm-dd");
+        }
+    }
 }

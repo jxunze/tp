@@ -1,5 +1,6 @@
 package seedu.address.model.util;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -15,6 +16,8 @@ import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.Sex;
 import seedu.address.model.person.WorkHours;
+import seedu.address.model.schedule.Schedule;
+import seedu.address.model.schedule.ScheduleManager;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -30,7 +33,7 @@ public class SampleDataUtil {
                 new Sex("m"),
                 new PayRate(14.5),
                 new Address("Blk 30 Geylang Street 29, #06-40"),
-                new BankDetails("9102031012"),
+                new BankDetails("dbs 1234567890"),
                 new WorkHours(),
                 getTagSet("friends"),
                 new ArchiveStatus(false)),
@@ -41,7 +44,7 @@ public class SampleDataUtil {
                 new Sex("f"),
                 new PayRate(16),
                 new Address("Blk 30 Lorong 3 Serangoon Gardens, #07-18"),
-                new BankDetails("084102395"),
+                new BankDetails("ocbc 1234567"),
                 new WorkHours(),
                 getTagSet("colleagues", "friends"),
                 new ArchiveStatus(false)),
@@ -52,7 +55,7 @@ public class SampleDataUtil {
                 new Sex("f"),
                 new PayRate(20),
                 new Address("Blk 11 Ang Mo Kio Street 74, #11-04"),
-                new BankDetails("146172002492"),
+                new BankDetails("hsbc 0987654321"),
                 new WorkHours(),
                 getTagSet("neighbours"),
                 new ArchiveStatus(false)),
@@ -63,7 +66,7 @@ public class SampleDataUtil {
                 new Sex("m"),
                 new PayRate(18.5),
                 new Address("Blk 436 Serangoon Gardens Street 26, #16-43"),
-                new BankDetails("1803645852"),
+                new BankDetails("uob 8888777700"),
                 new WorkHours(),
                 getTagSet("family"),
                 new ArchiveStatus(false)),
@@ -74,7 +77,7 @@ public class SampleDataUtil {
                 new Sex("m"),
                 new PayRate(16.5),
                 new Address("Blk 47 Tampines Street 20, #17-35"),
-                new BankDetails("0052312891"),
+                new BankDetails("posb 369369369"),
                 new WorkHours(),
                 getTagSet("classmates"),
                 new ArchiveStatus(false)),
@@ -85,7 +88,7 @@ public class SampleDataUtil {
                 new Sex("m"),
                 new PayRate(10),
                 new Address("Blk 45 Aljunied Street 85, #11-31"),
-                new BankDetails("5501089550"),
+                new BankDetails("ocbc 7654321"),
                 new WorkHours(),
                 getTagSet("colleagues"),
                 new ArchiveStatus(false))
@@ -98,6 +101,19 @@ public class SampleDataUtil {
             sampleAb.addPerson(samplePerson);
         }
         return sampleAb;
+    }
+
+    public static Schedule getSampleSchedule() {
+        Schedule sampleSchedule = new ScheduleManager();
+        LocalDate date = LocalDate.now();
+        int count = 0;
+        for (Person samplePerson : getSamplePersons()) {
+            if (count % 3 == 0) {
+                date = date.plusDays(1);
+            }
+            sampleSchedule.addPerson(samplePerson, date);
+        }
+        return sampleSchedule;
     }
 
     /**
