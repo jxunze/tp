@@ -158,6 +158,7 @@ public class Person {
             .add("address", address)
             .add("bankDetails", bankDetails)
             .add("tags", tags)
+            .add("archiveStatus", archiveStatus)
             .toString();
     }
 
