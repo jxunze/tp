@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import seedu.address.model.person.Address;
+import seedu.address.model.person.ArchiveStatus;
 import seedu.address.model.person.BankDetails;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.PayRate;
@@ -27,6 +28,7 @@ public class PersonBuilder {
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
     public static final String DEFAULT_BANK_ADDRESS = "ocbc 8374219";
     public static final int DEFAULT_WORK_HOURS = 0;
+    public static final boolean DEFAULT_ARCHIVE_STATUS = false;
 
     private Name firstName;
     private Name lastName;
@@ -37,6 +39,7 @@ public class PersonBuilder {
     private BankDetails bankDetails;
     private WorkHours hoursWorked;
     private Set<Tag> tags;
+    private ArchiveStatus archiveStatus;
 
     /**
      * Creates a {@code PersonBuilder} with the default details.
@@ -51,6 +54,7 @@ public class PersonBuilder {
         bankDetails = new BankDetails(DEFAULT_BANK_ADDRESS);
         hoursWorked = new WorkHours(DEFAULT_WORK_HOURS);
         tags = new HashSet<>();
+        archiveStatus = new ArchiveStatus(DEFAULT_ARCHIVE_STATUS);
     }
 
     /**
@@ -65,6 +69,7 @@ public class PersonBuilder {
         payRate = personToCopy.getPayRate();
         bankDetails = personToCopy.getBankDetails();
         tags = new HashSet<>(personToCopy.getTags());
+        archiveStatus = personToCopy.getArchiveStatus();
     }
 
 
@@ -140,8 +145,20 @@ public class PersonBuilder {
         return this;
     }
 
+    /**
+     * Sets the {@code ArchiveStatus} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withArchiveStatus(boolean archiveStatus) {
+        this.archiveStatus = new ArchiveStatus(archiveStatus);
+        return this;
+    }
+
+    /**
+     * Builds the person object.
+     */
     public Person build() {
-        return new Person(firstName, lastName, phone, sex, payRate, address, bankDetails, hoursWorked, tags);
+        return new Person(firstName, lastName, phone, sex, payRate, address, bankDetails, hoursWorked,
+                tags, archiveStatus);
     }
 
 }

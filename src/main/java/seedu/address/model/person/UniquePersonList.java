@@ -79,6 +79,44 @@ public class UniquePersonList implements Iterable<Person> {
         }
     }
 
+    /**
+     * Archives the equivalent person from the list.
+     * The person must exist in the list.
+     */
+    public void archive(Person target, Person archivedPerson) {
+        requireAllNonNull(target);
+
+        int index = internalList.indexOf(target);
+        if (index == -1) {
+            throw new PersonNotFoundException();
+        }
+
+        if (!target.isSamePerson(archivedPerson) && contains(archivedPerson)) {
+            throw new DuplicatePersonException();
+        }
+
+        internalList.set(index, archivedPerson);
+    }
+
+    /**
+     * Unarchives the equivalent person from the list.
+     * The person must exist in the list.
+     */
+    public void unarchive(Person target, Person unarchivedPerson) {
+        requireAllNonNull(target);
+
+        int index = internalList.indexOf(target);
+        if (index == -1) {
+            throw new PersonNotFoundException();
+        }
+
+        if (!target.isSamePerson(unarchivedPerson) && contains(unarchivedPerson)) {
+            throw new DuplicatePersonException();
+        }
+
+        internalList.set(index, unarchivedPerson);
+    }
+
     public void setPersons(UniquePersonList replacement) {
         requireNonNull(replacement);
         internalList.setAll(replacement.internalList);
@@ -102,6 +140,32 @@ public class UniquePersonList implements Iterable<Person> {
      */
     public ObservableList<Person> asUnmodifiableObservableList() {
         return internalUnmodifiableList;
+    }
+
+    /**
+     * Returns an ObservableList of unarchived persons.
+     */
+    public ObservableList<Person> getUnarchivedPersonList() {
+        ObservableList<Person> unarchivedPersons = FXCollections.observableArrayList();
+        for (Person person : internalList) {
+            if (!person.getArchiveStatus().getArchiveStatus()) {
+                unarchivedPersons.add(person);
+            }
+        }
+        return FXCollections.unmodifiableObservableList(unarchivedPersons);
+    }
+
+    /**
+     * Returns an ObservableList of archived persons.
+     */
+    public ObservableList<Person> getArchivedPersonList() {
+        ObservableList<Person> archivedPersons = FXCollections.observableArrayList();
+        for (Person person : internalList) {
+            if (person.getArchiveStatus().getArchiveStatus()) {
+                archivedPersons.add(person);
+            }
+        }
+        return FXCollections.unmodifiableObservableList(archivedPersons);
     }
 
     @Override

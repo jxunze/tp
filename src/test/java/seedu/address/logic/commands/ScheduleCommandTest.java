@@ -37,24 +37,6 @@ public class ScheduleCommandTest {
         assertThrows(NullPointerException.class, () -> new ScheduleCommand(phoneNumber, null));
     }
 
-    //    @Test
-    //    public void execute_personAcceptedByModel_addSuccessful() throws Exception {
-    //        Person person = new PersonBuilder().build();
-    //        Phone validPhone = person.getPhone();
-    //        LocalDate validDate = LocalDate.now();
-    //        ModelStubAcceptingScheduleUpdate modelStub = new ModelStubAcceptingScheduleUpdate(person);
-    //
-    //        CommandResult commandResult = new ScheduleCommand(validPhone, validDate).execute(modelStub);
-    //
-    //        assertEquals(String.format(ScheduleCommand.MESSAGE_SUCCESS, person.getName().value, validDate),
-    //            commandResult.getFeedbackToUser());
-    //        ScheduleDate scheduleDate = new ScheduleDate(validDate);
-    //        scheduleDate.addPerson(person);
-    //        Set<ScheduleDate> successSchedule = new HashSet<>();
-    //        successSchedule.add(scheduleDate);
-    //        assertEquals(modelStub.getScheduleDates(), successSchedule);
-    //    }
-
     @Test
     public void execute_personNotFound_throwsCommandException() {
         Person person = new PersonBuilder().build();
@@ -178,6 +160,16 @@ public class ScheduleCommandTest {
         }
 
         @Override
+        public ObservableList<Person> getFilteredUnarchivedPersonList() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public ObservableList<Person> getFilteredArchivedPersonList() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public void updateFilteredPersonList(Predicate<Person> predicate) {
             throw new AssertionError("This method should not be called.");
         }
@@ -204,6 +196,16 @@ public class ScheduleCommandTest {
 
         @Override
         public void removePersonFromSchedule(Person person, LocalDate date) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void archivePerson(Person personToArchive, Person archivedPerson) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void unarchivePerson(Person personToUnarchive, Person unarchivedPerson) {
             throw new AssertionError("This method should not be called.");
         }
     }

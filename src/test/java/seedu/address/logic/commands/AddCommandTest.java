@@ -97,6 +97,12 @@ public class AddCommandTest {
         public void updatePerson(Person personToUpdate) {
             throw new AssertionError("This method should not be called.");
         }
+
+        @Override
+        public void archivePerson(Person personToArchive, Person archivedPerson) {
+            throw new AssertionError("This method should not be called.");
+        }
+
         @Override
         public Person getPersonByPhoneNumber(Phone phoneNumber) {
             throw new AssertionError("This method should not be called.");
@@ -162,7 +168,22 @@ public class AddCommandTest {
         }
 
         @Override
+        public void unarchivePerson(Person personToUnarchive, Person unarchivedPerson) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public ObservableList<Person> getFilteredPersonList() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public ObservableList<Person> getFilteredArchivedPersonList() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public ObservableList<Person> getFilteredUnarchivedPersonList() {
             throw new AssertionError("This method should not be called.");
         }
 

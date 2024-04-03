@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 import seedu.address.model.AddressBook;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.person.Address;
+import seedu.address.model.person.ArchiveStatus;
 import seedu.address.model.person.BankDetails;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.PayRate;
@@ -24,25 +25,73 @@ import seedu.address.model.tag.Tag;
  */
 public class SampleDataUtil {
     public static Person[] getSamplePersons() {
-        return new Person[]{
-            new Person(new Name("Alex"), new Name("Yeoh"), new Phone("87438807"), new Sex("m"),
-                    new PayRate(14.5), new Address("Blk 30 Geylang Street 29, #06-40"),
-                    new BankDetails("dbs 1234567890"), new WorkHours(), getTagSet("friends")),
-            new Person(new Name("Bernice"), new Name("Yu"), new Phone("99272758"), new Sex("f"),
-                    new PayRate(16), new Address("Blk 30 Lorong 3 Serangoon Gardens, #07-18"),
-                    new BankDetails("ocbc 1234567"), new WorkHours(), getTagSet("colleagues", "friends")),
-            new Person(new Name("Charlotte"), new Name("Oliveiro"), new Phone("93210283"), new Sex("f"),
-                new PayRate(20), new Address("Blk 11 Ang Mo Kio Street 74, #11-04"),
-                new BankDetails("hsbc 0987654321"), new WorkHours(), getTagSet("neighbours")),
-            new Person(new Name("David"), new Name("Li"), new Phone("91031282"),
-                new Sex("m"), new PayRate(18.5), new Address("Blk 436 Serangoon Gardens Street 26, #16-43"),
-                    new BankDetails("uob 8888777700"), new WorkHours(), getTagSet("family")),
-            new Person(new Name("Irfan"), new Name("Ibrahim"), new Phone("92492021"), new Sex("m"),
-                    new PayRate(16.5), new Address("Blk 47 Tampines Street 20, #17-35"),
-                    new BankDetails("posb 369369369"), new WorkHours(), getTagSet("classmates")),
-            new Person(new Name("Roy"), new Name("Balakrishnan"), new Phone("92624417"), new Sex("m"),
-                new PayRate(10), new Address("Blk 45 Aljunied Street 85, #11-31"),
-                    new BankDetails("ocbc 7654321"), new WorkHours(), getTagSet("colleagues"))
+        return new Person[] {
+            new Person(
+                new Name("Alex"),
+                new Name("Yeoh"),
+                new Phone("87438807"),
+                new Sex("m"),
+                new PayRate(14.5),
+                new Address("Blk 30 Geylang Street 29, #06-40"),
+                new BankDetails("dbs 1234567890"),
+                new WorkHours(),
+                getTagSet("friends"),
+                new ArchiveStatus(false)),
+            new Person(
+                new Name("Bernice"),
+                new Name("Yu"),
+                new Phone("99272758"),
+                new Sex("f"),
+                new PayRate(16),
+                new Address("Blk 30 Lorong 3 Serangoon Gardens, #07-18"),
+                new BankDetails("ocbc 1234567"),
+                new WorkHours(),
+                getTagSet("colleagues", "friends"),
+                new ArchiveStatus(false)),
+            new Person(
+                new Name("Charlotte"),
+                new Name("Oliveiro"),
+                new Phone("93210283"),
+                new Sex("f"),
+                new PayRate(20),
+                new Address("Blk 11 Ang Mo Kio Street 74, #11-04"),
+                new BankDetails("hsbc 0987654321"),
+                new WorkHours(),
+                getTagSet("neighbours"),
+                new ArchiveStatus(false)),
+            new Person(
+                new Name("David"),
+                new Name("Li"),
+                new Phone("91031282"),
+                new Sex("m"),
+                new PayRate(18.5),
+                new Address("Blk 436 Serangoon Gardens Street 26, #16-43"),
+                new BankDetails("uob 8888777700"),
+                new WorkHours(),
+                getTagSet("family"),
+                new ArchiveStatus(false)),
+            new Person(
+                new Name("Irfan"),
+                new Name("Ibrahim"),
+                new Phone("92492021"),
+                new Sex("m"),
+                new PayRate(16.5),
+                new Address("Blk 47 Tampines Street 20, #17-35"),
+                new BankDetails("posb 369369369"),
+                new WorkHours(),
+                getTagSet("classmates"),
+                new ArchiveStatus(false)),
+            new Person(
+                new Name("Roy"),
+                new Name("Balakrishnan"),
+                new Phone("92624417"),
+                new Sex("m"),
+                new PayRate(10),
+                new Address("Blk 45 Aljunied Street 85, #11-31"),
+                new BankDetails("ocbc 7654321"),
+                new WorkHours(),
+                getTagSet("colleagues"),
+                new ArchiveStatus(false))
         };
     }
 

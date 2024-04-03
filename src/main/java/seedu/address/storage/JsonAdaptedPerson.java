@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.person.Address;
+import seedu.address.model.person.ArchiveStatus;
 import seedu.address.model.person.BankDetails;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.PayRate;
@@ -36,6 +37,7 @@ class JsonAdaptedPerson {
     private final String bankDetails;
     private final List<JsonAdaptedTag> tags = new ArrayList<>();
     private final int workHours;
+    private final boolean archiveStatus;
 
     /**
      * Constructs a {@code JsonAdaptedPerson} with the given person details.
@@ -49,7 +51,8 @@ class JsonAdaptedPerson {
                              @JsonProperty("address") String address,
                              @JsonProperty("bankDetails") String bankDetails,
                              @JsonProperty("workHours") int workHours,
-                             @JsonProperty("tags") List<JsonAdaptedTag> tags) {
+                             @JsonProperty("tags") List<JsonAdaptedTag> tags,
+                             @JsonProperty("archiveStatus") boolean archiveStatus) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
@@ -61,6 +64,7 @@ class JsonAdaptedPerson {
         if (tags != null) {
             this.tags.addAll(tags);
         }
+        this.archiveStatus = archiveStatus;
     }
 
     /**
@@ -75,6 +79,7 @@ class JsonAdaptedPerson {
         address = source.getAddress().value;
         bankDetails = source.getBankDetails().value;
         workHours = source.getWorkHours().getHoursWorked();
+        archiveStatus = source.getArchiveStatus().getArchiveStatus();
         tags.addAll(source.getTags().stream()
             .map(JsonAdaptedTag::new)
             .collect(Collectors.toList()));
@@ -145,9 +150,12 @@ class JsonAdaptedPerson {
         final WorkHours modelWorkHours = new WorkHours(workHours);
 
         final Set<Tag> modelTags = new HashSet<>(personTags);
+
+        final ArchiveStatus modelArchiveStatus = new ArchiveStatus(archiveStatus);
+
         return new Person(modelFirstName, modelLastName, modelPhone, modelSex, modelPayRate,
             modelAddress,
-            modelBankDetails, modelWorkHours, modelTags);
+            modelBankDetails, modelWorkHours, modelTags, modelArchiveStatus);
     }
 
 }
