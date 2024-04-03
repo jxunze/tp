@@ -34,7 +34,6 @@ public class Calendar extends UiPart<Region> {
     // Number of weeks to display in the calendar
     private static int numberOfWeeks = 4;
 
-    private final LocalDate dateFocus;
     private final LocalDate today;
     private final Set<ScheduleDate> scheduleDates;
 
@@ -47,7 +46,6 @@ public class Calendar extends UiPart<Region> {
      */
     public Calendar(Set<ScheduleDate> scheduleDates) {
         super(FXML);
-        dateFocus = LocalDate.now();
         today = LocalDate.now();
         this.scheduleDates = scheduleDates;
         drawCalendar();
@@ -70,13 +68,13 @@ public class Calendar extends UiPart<Region> {
         // List of activities for a given month
         Map<LocalDate, ScheduleDate> scheduleDateMap = createCalendarMap();
 
-        Month month = dateFocus.getMonth();
-        int day = dateFocus.getDayOfMonth() - dateFocus.getDayOfWeek().getValue();
+        Month month = today.getMonth();
+        int day = today.getDayOfMonth() - today.getDayOfWeek().getValue();
         if (day <= 0) {
-            month = dateFocus.getMonth().minus(1);
+            month = today.getMonth().minus(1);
             day = month.maxLength() + day;
         }
-        int currentMonthMaxDay = dateFocus.lengthOfMonth();
+        int currentMonthMaxDay = month.maxLength();
 
         for (int i = 0; i < numberOfWeeks; i++) {
             for (int j = 0; j < 7; j++) {
@@ -91,12 +89,7 @@ public class Calendar extends UiPart<Region> {
                 rectangle.setHeight(rectangleHeight);
                 stackPane.getChildren().add(rectangle);
                 String dayMonth = day + " " + month.getDisplayName(TextStyle.FULL, Locale.ENGLISH);
-                ScheduleDate scheduleDate = scheduleDateMap.get(LocalDate.of(dateFocus.getYear(), month, day));
-                day++;
-                if (day > currentMonthMaxDay) {
-                    day = 1;
-                    month = month.plus(1);
-                }
+                ScheduleDate scheduleDate = scheduleDateMap.get(LocalDate.of(today.getYear(), month, day));
                 Text date = new Text(dayMonth);
                 double textTranslationY = -(rectangleHeight / 2) * 0.75;
                 date.setTranslateY(textTranslationY);
@@ -104,11 +97,16 @@ public class Calendar extends UiPart<Region> {
                 if (scheduleDate != null) {
                     createCalendarActivity(scheduleDate, rectangleHeight, rectangleWidth, stackPane);
                 }
-                if (today.getYear() == dateFocus.getYear() && today.getMonth() == dateFocus.getMonth()
-                        && today.getDayOfMonth() == day) {
+                if (today.getDayOfMonth() == day && today.getMonth() == month) {
                     rectangle.setStroke(Color.BLUE);
                 }
                 calendar.getChildren().add(stackPane);
+                day++;
+                if (day > currentMonthMaxDay) {
+                    day = 1;
+                    month = month.plus(1);
+                    currentMonthMaxDay = month.maxLength();
+                }
             }
         }
     }
