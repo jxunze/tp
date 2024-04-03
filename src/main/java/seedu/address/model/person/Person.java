@@ -136,7 +136,8 @@ public class Person {
             && payRate.equals(otherPerson.payRate)
             && address.equals(otherPerson.address)
             && bankDetails.equals(otherPerson.bankDetails)
-            && tags.equals(otherPerson.tags);
+            && tags.equals(otherPerson.tags)
+            && archiveStatus.equals(otherPerson.archiveStatus);
     }
 
     @Override
