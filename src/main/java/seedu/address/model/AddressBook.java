@@ -94,6 +94,14 @@ public class AddressBook implements ReadOnlyAddressBook {
         persons.remove(key);
     }
 
+    public void archivePerson(Person target, Person archivedPerson) {
+        persons.archive(target, archivedPerson);
+    }
+
+    public void unarchivePerson(Person target, Person unarchivedPerson) {
+        persons.unarchive(target, unarchivedPerson);
+    }
+
     //// util methods
 
     @Override

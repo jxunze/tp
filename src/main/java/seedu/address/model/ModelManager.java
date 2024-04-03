@@ -102,7 +102,7 @@ public class ModelManager implements Model {
     @Override
     public void addPerson(Person person) {
         addressBook.addPerson(person);
-        updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+        updateFilteredPersonList(PREDICATE_SHOW_ALL_UNARCHIVED_PERSONS);
     }
 
     @Override
@@ -110,6 +110,16 @@ public class ModelManager implements Model {
         requireAllNonNull(target, editedPerson);
 
         addressBook.setPerson(target, editedPerson);
+    }
+
+    @Override
+    public void archivePerson(Person target, Person archivedPerson) {
+        addressBook.archivePerson(target, archivedPerson);
+    }
+
+    @Override
+    public void unarchivePerson(Person target, Person unarchivedPerson) {
+        addressBook.unarchivePerson(target, unarchivedPerson);
     }
 
     //=========== Filtered Person List Accessors =============================================================
@@ -120,6 +130,26 @@ public class ModelManager implements Model {
      */
     @Override
     public ObservableList<Person> getFilteredPersonList() {
+        return filteredPersons;
+    }
+
+    /**
+     *  Returns an unmodifiable view of the list of unarchived {@code Person} backed by the internal list of
+     * {@code addressBook}
+     */
+    @Override
+    public ObservableList<Person> getFilteredUnarchivedPersonList() {
+        this.updateFilteredPersonList(PREDICATE_SHOW_ALL_UNARCHIVED_PERSONS);
+        return filteredPersons;
+    }
+
+    /**
+     * Returns an unmodifiable view of the list of archived {@code Person} backed by the internal list of
+     * {@code addressBook}
+     */
+    @Override
+    public ObservableList<Person> getFilteredArchivedPersonList() {
+        this.updateFilteredPersonList(PREDICATE_SHOW_ALL_ARCHIVED_PERSONS);
         return filteredPersons;
     }
 

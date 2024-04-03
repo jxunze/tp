@@ -15,6 +15,12 @@ public interface Model {
     /** {@code Predicate} that always evaluate to true */
     Predicate<Person> PREDICATE_SHOW_ALL_PERSONS = unused -> true;
 
+    /** {@code Predicate} that evaluates to true when the person is not archived */
+    Predicate<Person> PREDICATE_SHOW_ALL_UNARCHIVED_PERSONS = person -> !person.getArchiveStatus().getArchiveStatus();
+
+    /** {@code Predicate} that evaluates to true when the person is archived */
+    Predicate<Person> PREDICATE_SHOW_ALL_ARCHIVED_PERSONS = person -> person.getArchiveStatus().getArchiveStatus();
+
     /**
      * Replaces user prefs data with the data in {@code userPrefs}.
      */
@@ -80,6 +86,12 @@ public interface Model {
     /** Returns an unmodifiable view of the filtered person list */
     ObservableList<Person> getFilteredPersonList();
 
+    /** Returns an unmodifiable view of the filtered un-archived person list */
+    ObservableList<Person> getFilteredUnarchivedPersonList();
+
+    /** Returns an unmodifiable view of the filtered archived person list */
+    ObservableList<Person> getFilteredArchivedPersonList();
+
     /**
      * Updates the filter of the filtered person list to filter by the given {@code predicate}.
      * @throws NullPointerException if {@code predicate} is null.
@@ -97,4 +109,8 @@ public interface Model {
      * @param personToUpdate The person to be updated.
      */
     void updatePerson(Person personToUpdate);
+
+    void archivePerson(Person personToArchive, Person archivedPerson);
+
+    void unarchivePerson(Person personToUnarchive, Person unarchivedPerson);
 }

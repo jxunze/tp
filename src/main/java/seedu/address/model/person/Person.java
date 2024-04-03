@@ -28,13 +28,14 @@ public class Person {
     private final BankDetails bankDetails;
     private final Set<Tag> tags = new HashSet<>();
     private WorkHours hoursWorked;
+    private ArchiveStatus archiveStatus;
 
     /**
      * Every field must be present and not null.
      */
     public Person(Name firstName, Name lastName, Phone phone, Sex sex,
                   PayRate payRate, Address address,
-                  BankDetails bankDetails, WorkHours hoursWorked, Set<Tag> tags) {
+                  BankDetails bankDetails, WorkHours hoursWorked, Set<Tag> tags, ArchiveStatus archiveStatus) {
         requireAllNonNull(firstName, lastName, phone, address, bankDetails, tags);
         this.firstName = firstName;
         this.lastName = lastName;
@@ -45,6 +46,7 @@ public class Person {
         this.bankDetails = bankDetails;
         this.tags.addAll(tags);
         this.hoursWorked = hoursWorked;
+        this.archiveStatus = archiveStatus;
     }
 
     public Name getName() {
@@ -81,6 +83,10 @@ public class Person {
 
     public WorkHours getWorkHours() {
         return hoursWorked;
+    }
+
+    public ArchiveStatus getArchiveStatus() {
+        return archiveStatus;
     }
 
     public void setHoursWorked(WorkHours hoursWorked) {
@@ -130,7 +136,8 @@ public class Person {
             && payRate.equals(otherPerson.payRate)
             && address.equals(otherPerson.address)
             && bankDetails.equals(otherPerson.bankDetails)
-            && tags.equals(otherPerson.tags);
+            && tags.equals(otherPerson.tags)
+            && archiveStatus.equals(otherPerson.archiveStatus);
     }
 
     @Override
@@ -151,6 +158,7 @@ public class Person {
             .add("address", address)
             .add("bankDetails", bankDetails)
             .add("tags", tags)
+            .add("archiveStatus", archiveStatus)
             .toString();
     }
 

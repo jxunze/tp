@@ -97,7 +97,8 @@ public class PersonTest {
                 + ", payRate=" + ALICE.getPayRate()
                 + ", address=" + ALICE.getAddress()
                 + ", bankDetails=" + ALICE.getBankDetails()
-                + ", tags=" + ALICE.getTags() + "}";
+                + ", tags=" + ALICE.getTags()
+                + ", archiveStatus=" + ALICE.getArchiveStatus() + "}";
         assertEquals(expected, ALICE.toString());
     }
 }

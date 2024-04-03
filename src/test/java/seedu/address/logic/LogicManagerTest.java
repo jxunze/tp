@@ -68,7 +68,7 @@ public class LogicManagerTest {
 
     @Test
     public void execute_validCommand_success() throws Exception {
-        String listCommand = ListCommand.COMMAND_WORD;
+        String listCommand = ListCommand.COMMAND_WORD + " archive";
         assertCommandSuccess(listCommand, ListCommand.MESSAGE_SUCCESS, model);
     }
 
@@ -174,7 +174,7 @@ public class LogicManagerTest {
         String addCommand =
             AddCommand.COMMAND_WORD + FIRSTNAME_DESC_AMY + LASTNAME_DESC_AMY + PHONE_DESC_AMY
                 + SEX_DESC_AMY + PAYRATE_DESC_AMY + BANKDETAILS_DESC_AMY + ADDRESS_DESC_AMY;
-        Person expectedPerson = new PersonBuilder(AMY).withTags().build();
+        Person expectedPerson = new PersonBuilder(AMY).withTags().withArchiveStatus(false).build();
         System.out.println(expectedPerson.toString());
         System.out.println(addCommand);
         ModelManager expectedModel = new ModelManager();
