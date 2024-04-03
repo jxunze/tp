@@ -58,16 +58,24 @@ public class Calendar extends UiPart<Region> {
      */
     private void drawCalendar() {
         double calendarWidth = calendar.getPrefWidth();
+        assert(calendarWidth >= 0);
         double calendarHeight = calendar.getPrefHeight();
+        assert(calendarHeight >= 0);
         double strokeWidth = 1;
         double spacingH = calendar.getHgap();
+        assert(spacingH >= 0);
         double spacingV = calendar.getVgap();
+        assert(spacingV >= 0);
 
         // List of activities for a given month
         Map<LocalDate, ScheduleDate> scheduleDateMap = createCalendarMap();
 
         Month month = dateFocus.getMonth();
         int day = dateFocus.getDayOfMonth() - dateFocus.getDayOfWeek().getValue();
+        if (day <= 0) {
+            month = dateFocus.getMonth().minus(1);
+            day = month.maxLength() + day;
+        }
         int currentMonthMaxDay = dateFocus.lengthOfMonth();
 
         for (int i = 0; i < numberOfWeeks; i++) {
@@ -144,6 +152,7 @@ public class Calendar extends UiPart<Region> {
      * @param numberOfWeeks Number of weeks to display in the calendar.
      */
     public static void setNumberOfWeeks(int numberOfWeeks) {
+        assert(numberOfWeeks > 0);
         Calendar.numberOfWeeks = numberOfWeeks;
     }
 }
