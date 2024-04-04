@@ -3,12 +3,16 @@ package seedu.address.logic.commands;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ENDDATE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STARTDATE;
+
 import java.time.LocalDate;
-import seedu.address.commons.core.LogsCenter;
+
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 
-public class PayrollCommand extends Command{
+/**
+ * Generates a payroll for a time period.
+ */
+public class PayrollCommand extends Command {
     public static final String COMMAND_WORD = "payroll";
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Generates a payroll for a time period. "
             + "Parameters: "
@@ -20,6 +24,9 @@ public class PayrollCommand extends Command{
     private final LocalDate startDate;
     private final LocalDate endDate;
 
+    /**
+     * Creates a PayrollCommand to generate a payroll for the specified time period.
+     */
     public PayrollCommand(LocalDate startDate, LocalDate endDate) {
         this.startDate = startDate;
         this.endDate = endDate;

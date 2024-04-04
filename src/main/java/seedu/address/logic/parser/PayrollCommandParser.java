@@ -5,10 +5,11 @@ import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ENDDATE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STARTDATE;
 import static seedu.address.logic.parser.ParserUtil.arePrefixesPresent;
+
 import java.time.LocalDate;
+
 import seedu.address.logic.commands.PayrollCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.person.Phone;
 
 /**
  * Parses input arguments and creates a new PayrollCommand object

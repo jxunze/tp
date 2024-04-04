@@ -7,12 +7,18 @@ import javafx.scene.control.ListView;
 import javafx.scene.layout.Region;
 import seedu.address.model.person.PayrollWrapper;
 
+/**
+ * Panel containing the list of payrolls.
+ */
 public class PayrollListPanel extends UiPart<Region> {
     private static final String FXML = "PayrollListPanel.fxml";
 
     @FXML
     private ListView<PayrollWrapper> payrollListView;
 
+    /**
+     * Creates a {@code PayrollListPanel} with the given {@code ObservableList}.
+     */
     public PayrollListPanel(ObservableList<PayrollWrapper> payrollList) {
         super(FXML);
         payrollListView.setItems(payrollList);

@@ -1,10 +1,16 @@
 package seedu.address.model.person;
 
+/**
+ * Represents a Person's payroll in the address book.
+ */
 public class PayrollWrapper {
     private final Person person;
     private double hoursWorked = 0;
 
 
+    /**
+     * Creates a PayrollWrapper with the given {@code Person} and hours worked.
+     */
     public PayrollWrapper(Person person, double hoursWorked) {
         this.person = person;
         this.hoursWorked = hoursWorked;

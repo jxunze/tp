@@ -6,7 +6,6 @@ import java.util.Set;
 import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
-import javafx.collections.ObservableMap;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.person.PayrollWrapper;
 import seedu.address.model.person.Person;
